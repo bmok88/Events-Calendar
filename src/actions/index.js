@@ -42,3 +42,8 @@ export const editingEvent = eventId => ({
   type: 'EDITING_EVENT',
   eventId
 });
+
+export const deleteSnapshot = eventId => ({
+  type: 'DELETE_SNAPSHOT',
+  eventId
+});

@@ -1,23 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Snapshot = ({ snapshot }) => {
-  const renderSnapshotCard = () => {
-    return snapshot.map((shot, i) => {
+const Snapshot = ({ snapshot, onDeleteClick }) => {
+  console.log(snapshot, 'snapshot');
+  const renderCard = () => {
+    return snapshot.map((s, i) => {
       return (
-        <div key={i}>
-          <div>{shot.title}</div>
-          <div>{shot.time}</div>
-        </div>
+        <Link to="/calendar" key={i}>
+          <div>{s.title}</div>
+          <div>{s.time}</div>
+        </Link>
       );
     });
   };
+
   return (
     <div className="snapshot">
-      <div className="delete-snapshot">
+      <div
+        className="delete-snapshot"
+        onClick={e => {
+          onDeleteClick(snapshot.id);
+        }}
+      >
         <img src="../public/delete.png" width="80px" height="80px" />
       </div>
-      <Link to="/calendar">{renderSnapshotCard()}</Link>
+      {renderCard()}
     </div>
   );
 };

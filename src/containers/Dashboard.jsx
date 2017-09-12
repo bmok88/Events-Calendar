@@ -2,11 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Snapshot from '../components/Snapshot';
+import { deleteSnapshot } from '../actions';
 
-const Dashboard = ({ events, snapshots }) => {
+const Dashboard = ({ events, snapshots, onDeleteClick }) => {
   const renderSnapshots = () => {
     return snapshots.map((snapshot, i) => {
-      return <Snapshot snapshot={snapshot} key={i} />;
+      return (
+        <Snapshot snapshot={snapshot} key={i} onDeleteClick={onDeleteClick} />
+      );
     });
   };
 
@@ -19,4 +22,12 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+const mapDispatchToProps = dispatch => {
+  return {
+    onDeleteClick: eventId => {
+      dispatch(deleteSnapshot(eventId));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

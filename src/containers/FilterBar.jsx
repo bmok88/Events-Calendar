@@ -55,7 +55,7 @@ const FilterBar = ({
     snapshotted = events.filter(event => {
       return checkedValues.indexOf(event.type) === -1;
     });
-
+    console.log('SNAPSHOTS', snapshotted);
     addSnapshot(snapshotted);
   };
 

@@ -43,7 +43,6 @@ const events = (state = [], action) => {
       newState.splice(action.event.id, 1);
       return newState;
     case 'ADD_TO_DASHBOARD':
-      console.log(action, 'adding to dashb');
       return newState.filter(event => {
         return action.events.indexOf(event.type) === -1;
       });

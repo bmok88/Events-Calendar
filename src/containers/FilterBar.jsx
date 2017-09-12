@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import FilterComponent from './FilterBar';
+import FilterComponents from '../components/FilterComponents';
 import {
   addFilter,
   removeFilter,
@@ -18,40 +18,18 @@ const FilterBar = ({
   addToDashboard,
   addSnapshot
 }) => {
-  const renderFilterComponents = () => {
-    const events = ['Birthday', 'Holiday', 'Company Event', 'Miscellaneous'];
-    return events.map((event, i) => {
-      return (
-        <div key={i} className="filter">
-          {event}
-          <input
-            className="filter-checkbox"
-            type="checkbox"
-            value={event}
-            onChange={e => {
-              if (!filterTerms.includes(e.target.value)) {
-                addFilterTerm(e.target.value);
-              } else {
-                removeFilterTerm(e.target.value);
-              }
-            }}
-          />
-        </div>
-      );
-    });
-  };
-
   const handleAddEventsToDashboard = e => {
-    const children = e.target.children;
+    const inputs = e.target.children[0].children;
     const checkedValues = [];
     let snapshotted;
 
-    for (let i = 0; i < 3; i++) {
-      if (children[i].children[0].checked) {
-        checkedValues.push(children[i].children[0].value);
+    for (let i = 0; i < 4; i++) {
+      console.log('inputs', inputs[i].children[0].checked);
+      if (inputs[i].children[0].checked) {
+        checkedValues.push(inputs[i].children[0].value);
       }
     }
-
+    console.log('checkedValues', checkedValues);
     snapshotted = events.filter(event => {
       return checkedValues.indexOf(event.type) === -1;
     });
@@ -68,7 +46,11 @@ const FilterBar = ({
           handleAddEventsToDashboard(e);
         }}
       >
-        {renderFilterComponents()}
+        <FilterComponents
+          filterTerms={filterTerms}
+          addFilterTerm={addFilterTerm}
+          removeFilterTerm={removeFilterTerm}
+        />
         <button id="filter-button" type="submit" className="btn btn-success">
           Add Events to Dashboard
         </button>
@@ -91,9 +73,6 @@ const mapDispatchToProps = dispatch => {
     },
     removeFilterTerm: filterTerm => {
       dispatch(removeFilter(filterTerm));
-    },
-    addToDashboard: events => {
-      dispatch(addEventsToDashboard(events));
     },
     addSnapshot: events => {
       dispatch(addASnapshot(events));

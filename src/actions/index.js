@@ -43,7 +43,7 @@ export const editingEvent = eventId => ({
   eventId
 });
 
-export const deleteSnapshot = eventId => ({
+export const deleteSnapshot = position => ({
   type: 'DELETE_SNAPSHOT',
-  eventId
+  position
 });

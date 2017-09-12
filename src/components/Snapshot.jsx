@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Snapshot = ({ snapshot, onDeleteClick }) => {
+const Snapshot = ({ snapshot, position, onDeleteClick }) => {
   console.log(snapshot, 'snapshot');
   const renderCard = () => {
     return snapshot.map((s, i) => {
@@ -19,7 +19,7 @@ const Snapshot = ({ snapshot, onDeleteClick }) => {
       <div
         className="delete-snapshot"
         onClick={e => {
-          onDeleteClick(snapshot.id);
+          onDeleteClick(position);
         }}
       >
         <img src="../public/delete.png" width="80px" height="80px" />

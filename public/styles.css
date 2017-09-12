@@ -111,3 +111,7 @@ div.filter input {
 .delete-snapshot {
   float: right;
 }
+
+.delete-snapshot {
+  cursor: pointer;
+}

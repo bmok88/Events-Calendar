@@ -8,7 +8,12 @@ const Dashboard = ({ events, snapshots, onDeleteClick }) => {
   const renderSnapshots = () => {
     return snapshots.map((snapshot, i) => {
       return (
-        <Snapshot snapshot={snapshot} key={i} onDeleteClick={onDeleteClick} />
+        <Snapshot
+          snapshot={snapshot}
+          key={i}
+          position={i}
+          onDeleteClick={onDeleteClick}
+        />
       );
     });
   };

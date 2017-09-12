@@ -4,7 +4,7 @@ const snapshots = (state = [], action) => {
       return [...state, action.events];
     case 'DELETE_SNAPSHOT':
       const newState = state.slice();
-      newState.splice(action.eventId, 1);
+      newState.splice(action.position, 1);
 
       return newState;
     default:

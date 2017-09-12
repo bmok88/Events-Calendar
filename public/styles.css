@@ -1,0 +1,113 @@
+html {
+  font-size: 3rem;
+}
+
+main {
+  height: 95vh;
+}
+
+#calendarview-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#filterbar {
+  width: 20%;
+  position: absolute;
+  left: 6%;
+  top: 6.5%;
+}
+
+#month-container {
+  width: 70%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+}
+
+table {
+  width: 100%;
+}
+
+h3 {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+
+.week {
+  width: 100%;
+  height: 20%;
+  text-align: center;
+}
+
+th {
+  font-size: 0.8rem;
+  width: 13%;
+  border: 2px solid black;
+}
+
+td {
+  border: 2px solid black;
+  position: relative;
+  width: 13%;
+  height: 300px;
+}
+
+.day {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+div.filter {
+  font-size: 0.6rem;
+  text-align: left;
+  position: relative;
+}
+
+div.filter input {
+  width: 0.65rem;
+  height: 0.65rem;
+  position: absolute;
+  padding-left: 100px;
+  right: 10%;
+  top: 25%;
+}
+
+.modal {
+  display: none;
+}
+
+.added-event {
+  font-size: 0.4rem;
+  width: 100%;
+}
+
+.added-event:hover {
+  background-color: yellow;
+}
+
+#filter-button {
+  margin-top: 10%;
+  width: 90%;
+  font-size: 0.6rem;
+}
+
+#nav li {
+  float: left;
+  list-style-type: none;
+  padding: 0 20px;
+}
+
+.snapshot {
+  border: 2px solid black;
+  width: 40%;
+  padding: 50px 50px;
+  margin: 150px 150px;
+}
+
+.delete-snapshot {
+  float: right;
+}

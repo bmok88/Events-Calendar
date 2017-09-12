@@ -9,7 +9,7 @@ import SelectEvent from '../containers/SelectEvent';
 
 let eventId = 0;
 
-const ModalComponent = ({
+const Modal = ({
   date,
   edit,
   editing,
@@ -95,4 +95,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(ModalComponent);
+export default connect(mapStateToProps)(Modal);

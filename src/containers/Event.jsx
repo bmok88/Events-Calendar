@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { editingEvent } from '../actions';
-import ModalComponent from '../components/ModalComponent';
 
 const Event = ({
   id,

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import FilterComponents from '../components/FilterComponents';
+import SnapshotModal from '../components/SnapshotModal';
+
 import {
   addFilter,
   removeFilter,
@@ -19,21 +21,22 @@ const FilterBar = ({
   addSnapshot
 }) => {
   const handleAddEventsToDashboard = e => {
+    const snapshotName = e.target.children[1].children[1].value;
     const inputs = e.target.children[0].children;
     const checkedValues = [];
     let snapshotted;
 
     for (let i = 0; i < 4; i++) {
-      console.log('inputs', inputs[i].children[0].checked);
       if (inputs[i].children[0].checked) {
         checkedValues.push(inputs[i].children[0].value);
       }
     }
-    console.log('checkedValues', checkedValues);
+
     snapshotted = events.filter(event => {
       return checkedValues.indexOf(event.type) === -1;
     });
-    console.log('SNAPSHOTS', snapshotted);
+
+    snapshotted.name = snapshotName;
     addSnapshot(snapshotted);
   };
 
@@ -51,7 +54,8 @@ const FilterBar = ({
           addFilterTerm={addFilterTerm}
           removeFilterTerm={removeFilterTerm}
         />
-        <button id="filter-button" type="submit" className="btn btn-success">
+        <SnapshotModal />
+        <button id="filter-button" type="button" className="btn btn-success">
           Add Events to Dashboard
         </button>
       </form>

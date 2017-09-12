@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Event from './Event';
-import ModalComponent from '../components/ModalComponent';
+import Modal from '../components/Modal';
 
 import {
   addEvent,
@@ -60,7 +60,7 @@ const Day = ({
         }}
       >
         <div className="day">{date}</div>
-        <ModalComponent
+        <Modal
           date={date}
           onDayClick={onDayClick}
           onEventClick={onEventClick}
@@ -83,7 +83,7 @@ const Day = ({
       >
         <div className="day">{date}</div>
         {mapAndRenderEvents()}
-        <ModalComponent
+        <Modal
           date={date}
           onDayClick={onDayClick}
           onEventClick={onEventClick}

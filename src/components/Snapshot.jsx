@@ -16,6 +16,7 @@ const Snapshot = ({ snapshot, position, onDeleteClick }) => {
 
   return (
     <div className="snapshot">
+      <h2>{snapshot.name}</h2>
       <div
         className="delete-snapshot"
         onClick={e => {

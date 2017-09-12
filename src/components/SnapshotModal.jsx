@@ -1,11 +1,16 @@
 import React from 'react';
 
-const SnapshotModal = () => {
+const SnapshotModal = ({ hideSnapshotModal }) => {
   return (
-    <div id="snapshotmodal">
-      <h2>Name this snapshot</h2>
-      <input type="text" />
-      <button type="submit">Add</button>
+    <div className="modal" id="snapshot-modal">
+      <div className="modal-content">
+        <h2>Name this snapshot</h2>
+        <input type="text" />
+        <button type="button" onClick={() => hideSnapshotModal()}>
+          Cancel
+        </button>
+        <button type="submit">Add</button>
+      </div>
     </div>
   );
 };

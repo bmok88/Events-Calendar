@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import SelectMonth from '../containers/SelectMonth';
 import SelectDate from '../containers/SelectDate';
-import SelectStartHour from '../containers/SelectStartHour';
-import SelectStartMinute from '../containers/SelectStartMinute';
+import SelectHour from '../containers/SelectHour';
+import SelectMinute from '../containers/SelectMinute';
 import SelectEvent from '../containers/SelectEvent';
 
 import { chooseSnapshot } from '../actions';
@@ -26,9 +26,14 @@ const Modal = ({
     const title = form[1].value;
     const month = form[2].value;
     const date = form[3].value;
-    const hour = form[4].value;
-    const minute = form[5].value;
-    const amPM = form[6].value;
+    const startHour = form[4].value;
+    const startMinute = form[5].value;
+    const startAmPM = form[6].value;
+    const endHour = form[7].value;
+    const endMinute = form[8].value;
+    const endAmPM = form[9].value;
+    const time = `${startHour}:${startMinute +
+      startAmPM} - ${endHour}:${endMinute + endAmPM}`;
     const id = editing !== '' ? editing : eventId++;
     const modal = document.getElementById('event-modal');
 
@@ -37,13 +42,11 @@ const Modal = ({
       title,
       month,
       date,
-      hour,
-      minute,
-      amPM,
+      time,
       id
     };
+    console.log('new event', event);
 
-    console.log('editing', editing);
     if (editing !== '') {
       onEventClick(event);
     } else {
@@ -78,9 +81,16 @@ const Modal = ({
           <SelectMonth />
           Date
           <SelectDate onChooseDateClick={onChooseDateClick} />
-          SelectStartTime
-          <SelectStartHour />
-          <SelectStartMinute />
+          Start Time
+          <SelectHour />
+          <SelectMinute />
+          <select>
+            <option value="AM">AM</option>
+            <option value="AM">PM</option>
+          </select>
+          End Time
+          <SelectHour />
+          <SelectMinute />
           <select>
             <option value="AM">AM</option>
             <option value="AM">PM</option>

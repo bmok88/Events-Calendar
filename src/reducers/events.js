@@ -1,21 +1,18 @@
 const event = (state, action) => {
   switch (action.type) {
     case 'ADD_EVENT':
-      console.log('event', action);
       const event = action.event;
-      let time = event.hour + ':' + event.minute + event.amPM;
+
       return {
         id: action.event.id,
         title: event.title,
         month: event.month,
         date: event.date,
         type: event.type,
-        time
+        time: event.time
       };
     case 'EDIT_EVENT':
       if (state.id === action.event.id) {
-        let time =
-          action.event.hour + ':' + action.event.minute + action.event.amPM;
         return {
           id: action.event.id,
           title: action.event.title,

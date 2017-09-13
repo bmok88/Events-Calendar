@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class SelectStartHour extends Component {
+class SelectHour extends Component {
   state = {
     chosenHour: ''
   };
@@ -30,4 +30,4 @@ class SelectStartHour extends Component {
   }
 }
 
-export default SelectStartHour;
+export default SelectHour;

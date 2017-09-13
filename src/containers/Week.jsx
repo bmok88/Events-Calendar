@@ -7,14 +7,12 @@ const Week = ({ week, events, filterTerms }) => {
   const renderDays = () => {
     const days = [];
     const lastDayOfTheWeek = week * 7;
-
     for (let i = lastDayOfTheWeek - 6; i <= lastDayOfTheWeek; i++) {
       let eventsToPassDown = [];
+
       events.forEach(event => {
-        if (
-          parseInt(event.date) === i &&
-          filterTerms.indexOf(event.type) === -1
-        ) {
+        let date = parseInt(event.date);
+        if (date === i && filterTerms.indexOf(event.type) === -1) {
           eventsToPassDown.push(event);
         }
       });

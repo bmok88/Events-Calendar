@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const Snapshot = ({ snapshot, position, onDeleteClick }) => {
-  console.log(snapshot, 'snapshot');
+import { addFilterTerms } from '../actions';
+
+const Snapshot = ({ snapshot, position, onDeleteClick, addFilterTerms }) => {
   const renderCard = () => {
     return snapshot.map((s, i) => {
       return (
@@ -15,7 +17,12 @@ const Snapshot = ({ snapshot, position, onDeleteClick }) => {
   };
 
   return (
-    <div className="snapshot">
+    <div
+      className="snapshot"
+      onClick={e => {
+        addFilterTerms(snapshot.filterTerms);
+      }}
+    >
       <h2>{snapshot.name}</h2>
       <div
         className="delete-snapshot"
@@ -30,4 +37,12 @@ const Snapshot = ({ snapshot, position, onDeleteClick }) => {
   );
 };
 
-export default Snapshot;
+const mapDispatchToProps = dispatch => {
+  return {
+    addFilterTerms: filterTerms => {
+      dispatch(addFilterTerms(filterTerms));
+    }
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Snapshot);

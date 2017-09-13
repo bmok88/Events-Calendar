@@ -47,3 +47,8 @@ export const deleteSnapshot = position => ({
   type: 'DELETE_SNAPSHOT',
   position
 });
+
+export const addFilterTerms = filterTerms => ({
+  type: 'ADD_FILTERTERMS',
+  filterTerms
+});

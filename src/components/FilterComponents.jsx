@@ -10,6 +10,7 @@ const FilterComponents = ({ filterTerms, addFilterTerm, removeFilterTerm }) => {
           <input
             className="filter-checkbox"
             type="checkbox"
+            checked={true}
             value={event}
             onChange={e => {
               if (!filterTerms.includes(e.target.value)) {
@@ -17,6 +18,8 @@ const FilterComponents = ({ filterTerms, addFilterTerm, removeFilterTerm }) => {
               } else {
                 removeFilterTerm(e.target.value);
               }
+              e.target.checked = false;
+              console.log(e.target.checked, 'input');
             }}
           />
         </div>

@@ -4,6 +4,8 @@ const filterTerms = (state = [], action) => {
       return [...state, action.filterTerm];
     case 'REMOVE_FILTER':
       return state.filter(f => f !== action.filterTerm);
+    case 'ADD_FILTERTERMS':
+      return action.filterTerms;
     default:
       return state;
   }

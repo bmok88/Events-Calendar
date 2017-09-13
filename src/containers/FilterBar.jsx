@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 
-import FilterComponents from '../components/FilterComponents';
+// import FilterComponents from '../components/FilterComponents';
+import Filter from './Filter.jsx';
 import SnapshotModal from '../components/SnapshotModal';
 
 import {
@@ -27,24 +28,24 @@ class FilterBar extends Component {
       addSnapshot
     } = this.props;
     const { submitted } = this.state;
+
     const handleAddEventsToDashboard = e => {
-      console.log(e.target.children[1].children[0].children[1].value);
-      const snapshotName = e.target.children[1].children[0].children[1].value;
-      const inputs = e.target.children[0].children;
-      const checkedValues = [];
+      const snapshotName = e.target.children[4].children[0].children[1].value;
+      const inputs = e.target.children;
+      const filterTerms = [];
       let snapshotted;
 
       for (let i = 0; i < 4; i++) {
-        if (inputs[i].children[0].checked) {
-          checkedValues.push(inputs[i].children[0].value);
+        if (!inputs[i].children[0].checked) {
+          filterTerms.push(inputs[i].children[0].value);
         }
       }
-
       snapshotted = events.filter(event => {
-        return checkedValues.indexOf(event.type) === -1;
+        return filterTerms.indexOf(event.type) === -1;
       });
-
       snapshotted.name = snapshotName;
+      snapshotted.filterTerms = filterTerms;
+
       addSnapshot(snapshotted);
       hideSnapshotModal();
     };
@@ -65,6 +66,21 @@ class FilterBar extends Component {
       });
     };
 
+    const renderFilterComponents = () => {
+      const events = ['Birthday', 'Holiday', 'Company Event', 'Miscellaneous'];
+      return events.map((event, i) => {
+        return (
+          <Filter
+            key={i}
+            event={event}
+            filterTerms={filterTerms}
+            addFilterTerm={addFilterTerm}
+            removeFilterTerm={removeFilterTerm}
+          />
+        );
+      });
+    };
+
     if (!submitted) {
       return (
         <div id="filterbar">
@@ -77,11 +93,7 @@ class FilterBar extends Component {
               handleRedirect();
             }}
           >
-            <FilterComponents
-              filterTerms={filterTerms}
-              addFilterTerm={addFilterTerm}
-              removeFilterTerm={removeFilterTerm}
-            />
+            {renderFilterComponents()}
             <SnapshotModal hideSnapshotModal={hideSnapshotModal} />
             <button
               id="filter-button"
@@ -122,3 +134,9 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterBar);
+
+// <FilterComponents
+//   filterTerms={filterTerms}
+//   addFilterTerm={addFilterTerm}
+//   removeFilterTerm={removeFilterTerm}
+// />

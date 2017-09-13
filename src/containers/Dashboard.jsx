@@ -9,9 +9,10 @@ const Dashboard = ({ events, snapshots, onDeleteClick }) => {
     return snapshots.map((snapshot, i) => {
       return (
         <Snapshot
-          snapshot={snapshot}
+          id={i}
           key={i}
           position={i}
+          snapshot={snapshot}
           onDeleteClick={onDeleteClick}
         />
       );

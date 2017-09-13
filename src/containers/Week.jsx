@@ -3,19 +3,28 @@ import { connect } from 'react-redux';
 
 import Day from '../containers/Day';
 
-const Week = ({ week, events, filterTerms }) => {
+const Week = ({ week, events, filterTerms, snapshots, viewSnapshot }) => {
   const renderDays = () => {
     const days = [];
     const lastDayOfTheWeek = week * 7;
     for (let i = lastDayOfTheWeek - 6; i <= lastDayOfTheWeek; i++) {
       let eventsToPassDown = [];
 
-      events.forEach(event => {
-        let date = parseInt(event.date);
-        if (date === i && filterTerms.indexOf(event.type) === -1) {
-          eventsToPassDown.push(event);
-        }
-      });
+      if (viewSnapshot === '') {
+        events.forEach(event => {
+          let date = parseInt(event.date);
+          if (date === i && filterTerms.indexOf(event.type) === -1) {
+            eventsToPassDown.push(event);
+          }
+        });
+      } else {
+        snapshots[viewSnapshot].forEach(event => {
+          let date = parseInt(event.date);
+          if (date === i && filterTerms.indexOf(event.type) === -1) {
+            eventsToPassDown.push(event);
+          }
+        });
+      }
       days.push(<Day key={i} date={i} events={eventsToPassDown} />);
     }
 
@@ -28,7 +37,9 @@ const Week = ({ week, events, filterTerms }) => {
 const mapStateToProps = state => {
   return {
     events: state.events,
-    filterTerms: state.filterTerms
+    snapshots: state.snapshots,
+    filterTerms: state.filterTerms,
+    viewSnapshot: state.viewSnapshot
   };
 };
 

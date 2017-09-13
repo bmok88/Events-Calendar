@@ -10,7 +10,8 @@ import {
   addFilter,
   removeFilter,
   addEventsToDashboard,
-  addASnapshot
+  addASnapshot,
+  chooseSnapshot
 } from '../actions';
 
 class FilterBar extends Component {
@@ -22,6 +23,7 @@ class FilterBar extends Component {
     const {
       events,
       filterTerms,
+      viewSnapshot,
       addFilterTerm,
       removeFilterTerm,
       addToDashboard,
@@ -30,6 +32,12 @@ class FilterBar extends Component {
     const { submitted } = this.state;
 
     const handleAddEventsToDashboard = e => {
+      const allEvents = [
+        'Birthday',
+        'Holiday',
+        'Company Event',
+        'Miscellaneous'
+      ];
       const snapshotName = e.target.children[4].children[0].children[1].value;
       const inputs = e.target.children;
       const filterTerms = [];
@@ -40,6 +48,15 @@ class FilterBar extends Component {
           filterTerms.push(inputs[i].children[0].value);
         }
       }
+
+      // events.forEach(event => {
+      //   allEvents.forEach(e => {
+      //     if (e !== event.type && filterTerms.indexOf(e) === -1) {
+      //       filterTerms.push(e);
+      //     }
+      //   });
+      // });
+
       snapshotted = events.filter(event => {
         return filterTerms.indexOf(event.type) === -1;
       });
@@ -74,6 +91,7 @@ class FilterBar extends Component {
             key={i}
             event={event}
             filterTerms={filterTerms}
+            viewSnapshot={viewSnapshot}
             addFilterTerm={addFilterTerm}
             removeFilterTerm={removeFilterTerm}
           />
@@ -129,14 +147,11 @@ const mapDispatchToProps = dispatch => {
     },
     addSnapshot: events => {
       dispatch(addASnapshot(events));
+    },
+    viewSnapshot: snapshotId => {
+      dispatch(chooseSnapshot(snapshotId));
     }
   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterBar);
-
-// <FilterComponents
-//   filterTerms={filterTerms}
-//   addFilterTerm={addFilterTerm}
-//   removeFilterTerm={removeFilterTerm}
-// />

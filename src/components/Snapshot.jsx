@@ -2,9 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { addFilterTerms } from '../actions';
+import { addFilterTerms, chooseSnapshot } from '../actions';
 
-const Snapshot = ({ snapshot, position, onDeleteClick, addFilterTerms }) => {
+const Snapshot = ({
+  id,
+  snapshot,
+  position,
+  filterTerms,
+  viewSnapshot,
+  onDeleteClick
+}) => {
   const renderCard = () => {
     return snapshot.map((s, i) => {
       return (
@@ -20,7 +27,8 @@ const Snapshot = ({ snapshot, position, onDeleteClick, addFilterTerms }) => {
     <div
       className="snapshot"
       onClick={e => {
-        addFilterTerms(snapshot.filterTerms);
+        console.log('filterTerms', snapshot.filterTerms);
+        viewSnapshot(id);
       }}
     >
       <h2>{snapshot.name}</h2>
@@ -37,10 +45,16 @@ const Snapshot = ({ snapshot, position, onDeleteClick, addFilterTerms }) => {
   );
 };
 
+const mapStateToProps = state => {
+  return {
+    filterTerms: state.filterTerms
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
-    addFilterTerms: filterTerms => {
-      dispatch(addFilterTerms(filterTerms));
+    viewSnapshot: snapshotId => {
+      dispatch(chooseSnapshot(snapshotId));
     }
   };
 };

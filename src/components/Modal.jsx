@@ -7,6 +7,8 @@ import SelectHour from '../containers/SelectHour';
 import SelectMinute from '../containers/SelectMinute';
 import SelectEvent from '../containers/SelectEvent';
 
+import { chooseSnapshot } from '../actions';
+
 let eventId = 0;
 
 const Modal = ({
@@ -14,6 +16,7 @@ const Modal = ({
   edit,
   editing,
   onDayClick,
+  viewSnapshot,
   onEventClick,
   onChooseDateClick
 }) => {
@@ -46,6 +49,7 @@ const Modal = ({
     } else {
       onDayClick(event);
     }
+    viewSnapshot('');
     modal.style.display = 'none';
   };
 
@@ -95,4 +99,12 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Modal);
+const mapDispatchToProps = dispatch => {
+  return {
+    viewSnapshot: snapshotId => {
+      dispatch(chooseSnapshot(snapshotId));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

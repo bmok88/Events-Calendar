@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Filter = ({ event, filterTerms, addFilterTerm, removeFilterTerm }) => {
+const Filter = ({
+  event,
+  filterTerms,
+  viewSnapshot,
+  addFilterTerm,
+  removeFilterTerm
+}) => {
   let checked = true;
   if (filterTerms.indexOf(event) !== -1) {
     checked = false;
@@ -15,13 +21,13 @@ const Filter = ({ event, filterTerms, addFilterTerm, removeFilterTerm }) => {
         checked={checked}
         value={event}
         onChange={e => {
+          viewSnapshot('');
           if (!filterTerms.includes(e.target.value)) {
             addFilterTerm(e.target.value);
           } else {
             removeFilterTerm(e.target.value);
           }
           e.target.checked = false;
-          console.log(e.target.checked, 'input');
         }}
       />
     </div>

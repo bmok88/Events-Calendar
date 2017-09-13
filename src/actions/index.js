@@ -48,7 +48,7 @@ export const deleteSnapshot = position => ({
   position
 });
 
-export const addFilterTerms = filterTerms => ({
-  type: 'ADD_FILTERTERMS',
-  filterTerms
+export const chooseSnapshot = snapshotId => ({
+  type: 'CHOOSE_SNAPSHOT',
+  snapshotId
 });

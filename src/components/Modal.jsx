@@ -6,6 +6,7 @@ import SelectDate from '../containers/SelectDate';
 import SelectHour from '../containers/SelectHour';
 import SelectMinute from '../containers/SelectMinute';
 import SelectEvent from '../containers/SelectEvent';
+import SelectAMPM from '../containers/SelectAMPM';
 
 import { chooseSnapshot } from '../actions';
 
@@ -84,17 +85,11 @@ const Modal = ({
           Start Time
           <SelectHour />
           <SelectMinute />
-          <select>
-            <option value="AM">AM</option>
-            <option value="AM">PM</option>
-          </select>
+          <SelectAMPM />
           End Time
           <SelectHour />
           <SelectMinute />
-          <select>
-            <option value="AM">AM</option>
-            <option value="AM">PM</option>
-          </select>
+          <SelectAMPM />
           <button type="submit">Save</button>
         </form>
       </div>

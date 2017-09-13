@@ -52,3 +52,8 @@ export const chooseSnapshot = snapshotId => ({
   type: 'CHOOSE_SNAPSHOT',
   snapshotId
 });
+
+export const addFilterTerms = filterTerms => ({
+  type: 'ADD_FILTERTERMS',
+  filterTerms
+});

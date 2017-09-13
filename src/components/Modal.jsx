@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import SelectMonth from '../containers/SelectMonth';
 import SelectDate from '../containers/SelectDate';
-import SelectHour from '../containers/SelectHour';
-import SelectMinute from '../containers/SelectMinute';
+import SelectStartHour from '../containers/SelectStartHour';
+import SelectStartMinute from '../containers/SelectStartMinute';
 import SelectEvent from '../containers/SelectEvent';
 
 import { chooseSnapshot } from '../actions';
@@ -78,10 +78,9 @@ const Modal = ({
           <SelectMonth />
           Date
           <SelectDate onChooseDateClick={onChooseDateClick} />
-          Hour
-          <SelectHour />
-          Minute
-          <SelectMinute />
+          SelectStartTime
+          <SelectStartHour />
+          <SelectStartMinute />
           <select>
             <option value="AM">AM</option>
             <option value="AM">PM</option>

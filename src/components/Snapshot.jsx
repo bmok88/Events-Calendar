@@ -8,6 +8,7 @@ const Snapshot = ({
   id,
   snapshot,
   position,
+  addFilters,
   filterTerms,
   viewSnapshot,
   onDeleteClick
@@ -29,6 +30,7 @@ const Snapshot = ({
       onClick={e => {
         console.log('filterTerms', snapshot.filterTerms);
         viewSnapshot(id);
+        addFilters(snapshot.filterTerms);
       }}
     >
       <h2>{snapshot.name}</h2>
@@ -55,6 +57,9 @@ const mapDispatchToProps = dispatch => {
   return {
     viewSnapshot: snapshotId => {
       dispatch(chooseSnapshot(snapshotId));
+    },
+    addFilters: filterTerms => {
+      dispatch(addFilterTerms(filterTerms));
     }
   };
 };

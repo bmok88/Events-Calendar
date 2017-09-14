@@ -28,22 +28,29 @@ const Day = ({
   };
 
   const mapAndRenderEvents = () => {
-    return events.map((event, i) => {
-      return (
-        <Event
-          key={i}
-          id={event.id}
-          date={date}
-          time={event.time}
-          title={event.title}
-          showModal={showModal}
-          onEventClick={onEventClick}
-          onEditClick={onEditClick}
-          onChooseDateClick={onChooseDateClick}
-          onDeleteClick={onDeleteClick}
-        />
-      );
-    });
+    return events
+      .sort((a, b) => {
+        return parseInt(a.startTime) > parseInt(b.startTime)
+          ? 1
+          : parseInt(a.startTime) < parseInt(b.startTime) ? -1 : 0;
+      })
+      .map((event, i) => {
+        let time = `${event.start} - ${event.end}`;
+        return (
+          <Event
+            key={i}
+            id={event.id}
+            date={date}
+            time={time}
+            title={event.title}
+            showModal={showModal}
+            onEventClick={onEventClick}
+            onEditClick={onEditClick}
+            onChooseDateClick={onChooseDateClick}
+            onDeleteClick={onDeleteClick}
+          />
+        );
+      });
   };
 
   if (!events.length) {

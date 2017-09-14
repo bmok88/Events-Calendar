@@ -27,26 +27,93 @@ const Modal = ({
     const title = form[1].value;
     const month = form[2].value;
     const date = form[3].value;
-    const startHour = form[4].value;
+    const startAMPM = form[6].value;
     const startMinute = form[5].value;
-    const startAmPM = form[6].value;
-    const endHour = form[7].value;
     const endMinute = form[8].value;
-    const endAmPM = form[9].value;
-    const time = `${startHour}:${startMinute +
-      startAmPM} - ${endHour}:${endMinute + endAmPM}`;
+    const endAMPM = form[9].value;
     const id = editing !== '' ? editing : eventId++;
     const modal = document.getElementById('event-modal');
+    let startTime;
+    let endTime;
+    let start;
+    let end;
+
+    if (startAMPM === 'PM') {
+      if (form[4].value === '12') {
+        startTime = `${form[4].value}${startMinute}`;
+      } else {
+        startTime = parseInt(form[4].value) + 12 + startMinute;
+      }
+    } else {
+      if (form[4].value === '12') {
+        startTime = `0${startMinute}`;
+      } else {
+        startTime = `${form[4].value}${startMinute}`;
+      }
+    }
+
+    if (endAMPM === 'PM') {
+      if (form[7].value === '12') {
+        endTime = `${form[7].value}${endMinute}`;
+      } else {
+        endTime = parseInt(form[7].value) + 12 + endMinute;
+      }
+    } else {
+      if (form[7].value === '12') {
+        endTime = `0${endMinute}`;
+      } else {
+        endTime = `${form[7].value}${endMinute}`;
+      }
+    }
+    console.log(startTime, 'startTime', 'endTime', endTime);
+
+    if (startTime.length === 4) {
+      if (parseInt(startTime.slice(0, 2)) > 12) {
+        start =
+          parseInt(startTime.slice(0, 2)) -
+          12 +
+          ':' +
+          startTime.slice(2) +
+          startAMPM;
+      } else {
+        start = startTime.slice(0, 2) + ':' + startTime.slice(2) + startAMPM;
+      }
+    } else {
+      if (startTime[0] === '0') {
+        start = '12:' + startTime.slice(1) + startAMPM;
+      } else {
+        start = startTime.slice(0, 1) + ':' + startTime.slice(1) + startAMPM;
+      }
+    }
+
+    if (endTime.length === 4) {
+      if (parseInt(endTime.slice(0, 2)) > 12) {
+        end =
+          parseInt(endTime.slice(0, 2)) - 12 + ':' + endTime.slice(2) + endAMPM;
+      } else {
+        end = endTime.slice(0, 2) + ':' + endTime.slice(2) + endAMPM;
+      }
+    } else {
+      if (endTime[0] === '0') {
+        end = '12:' + endTime.slice(1) + 'AM';
+      } else {
+        end = endTime.slice(0, 1) + ':' + endTime.slice(1) + endAMPM;
+      }
+    }
 
     const event = {
       type,
       title,
       month,
       date,
-      time,
+      start,
+      startTime,
+      end,
+      endTime,
+      startAMPM,
+      endAMPM,
       id
     };
-    console.log('new event', event);
 
     if (editing !== '') {
       onEventClick(event);

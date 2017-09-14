@@ -14,21 +14,27 @@ const Snapshot = ({
   onDeleteClick
 }) => {
   const renderCard = () => {
-    return snapshot.map((s, i) => {
-      return (
-        <Link to="/calendar" key={i}>
-          <div>{s.title}</div>
-          <div>{s.time}</div>
-        </Link>
-      );
-    });
+    return snapshot
+      .sort((a, b) => {
+        return a.date > b.date ? 1 : a.date < b.date ? -1 : 0;
+      })
+      .map((s, i) => {
+        return (
+          <Link to="/calendar" key={i}>
+            <div className="event-snapshot">
+              <span>{s.title}</span>
+              <span>{' ' + s.month.substr(0, 3) + ' ' + s.date + ' '}</span>
+              <span>{`${s.start} - ${s.end}`}</span>
+            </div>
+          </Link>
+        );
+      });
   };
 
   return (
     <div
       className="snapshot"
       onClick={e => {
-        console.log('filterTerms', snapshot.filterTerms);
         viewSnapshot(id);
         addFilters(snapshot.filterTerms);
       }}

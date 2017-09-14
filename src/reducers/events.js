@@ -9,7 +9,12 @@ const event = (state, action) => {
         month: event.month,
         date: event.date,
         type: event.type,
-        time: event.time
+        start: event.start,
+        startTime: event.startTime,
+        startAMPM: event.startAMPM,
+        end: event.end,
+        endTime: event.endTime,
+        endAMPM: event.endAMPM
       };
     case 'EDIT_EVENT':
       if (state.id === action.event.id) {

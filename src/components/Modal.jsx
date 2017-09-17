@@ -16,56 +16,57 @@ const Modal = ({
   date,
   edit,
   editing,
+  hideModal,
   onDayClick,
   viewSnapshot,
   onEventClick,
   onChooseDateClick
 }) => {
   const handleFormSubmit = e => {
-    const form = e.target.children;
-    const type = form[0].value;
-    const title = form[1].value;
-    const month = form[2].value;
-    const date = form[3].value;
-    const startAMPM = form[6].value;
-    const startMinute = form[5].value;
-    const endMinute = form[8].value;
-    const endAMPM = form[9].value;
+    const form = e.target.children[0];
+    const type = form.children[0].children[1].children[0].value;
+    const title = form.children[1].children[1].children[0].value;
+    const month = form.children[2].children[0].children[1].children[0].value;
+    const date = form.children[2].children[1].children[1].children[0].value;
+    const startHour = form.children[3].children[1].children[0].value;
+    const startMinute = form.children[3].children[2].children[0].value;
+    const startAMPM = form.children[3].children[3].children[0].value;
+    const endHour = form.children[4].children[1].children[0].value;
+    const endMinute = form.children[4].children[2].children[0].value;
+    const endAMPM = form.children[4].children[3].children[0].value;
     const id = editing !== '' ? editing : eventId++;
-    const modal = document.getElementById('event-modal');
     let startTime;
     let endTime;
     let start;
     let end;
 
     if (startAMPM === 'PM') {
-      if (form[4].value === '12') {
-        startTime = `${form[4].value}${startMinute}`;
+      if (startHour === '12') {
+        startTime = `${startHour}${startMinute}`;
       } else {
-        startTime = parseInt(form[4].value) + 12 + startMinute;
+        startTime = parseInt(startHour) + 12 + startMinute;
       }
     } else {
-      if (form[4].value === '12') {
+      if (startHour === '12') {
         startTime = `0${startMinute}`;
       } else {
-        startTime = `${form[4].value}${startMinute}`;
+        startTime = `${startHour}${startMinute}`;
       }
     }
 
     if (endAMPM === 'PM') {
-      if (form[7].value === '12') {
-        endTime = `${form[7].value}${endMinute}`;
+      if (endHour === '12') {
+        endTime = `${endHour}${endMinute}`;
       } else {
-        endTime = parseInt(form[7].value) + 12 + endMinute;
+        endTime = parseInt(endHour) + 12 + endMinute;
       }
     } else {
-      if (form[7].value === '12') {
+      if (endHour === '12') {
         endTime = `0${endMinute}`;
       } else {
-        endTime = `${form[7].value}${endMinute}`;
+        endTime = `${endHour}${endMinute}`;
       }
     }
-    console.log(startTime, 'startTime', 'endTime', endTime);
 
     if (startTime.length === 4) {
       if (parseInt(startTime.slice(0, 2)) > 12) {
@@ -121,7 +122,6 @@ const Modal = ({
       onDayClick(event);
     }
     viewSnapshot('');
-    modal.style.display = 'none';
   };
 
   return (
@@ -151,6 +151,7 @@ const Modal = ({
             onSubmit={e => {
               e.preventDefault();
               handleFormSubmit(e);
+              $('#event-modal').modal('hide');
             }}
           >
             <div className="modal-body">
@@ -205,8 +206,12 @@ const Modal = ({
                 </span>
               </div>
               <div className="modal-footer">
-                <button type="submit" className="btn btn-primary">
-                  Save
+                <button
+                  type="submit"
+                  aria-label="Save"
+                  className="btn btn-primary"
+                >
+                  <span aria-hidden="true">Save</span>
                 </button>
               </div>
             </div>
@@ -232,3 +237,8 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+
+// $('#event-form').submit(e => {
+//       e.preventDefault();
+//       $('#event-modal').modal('hide');
+//     });

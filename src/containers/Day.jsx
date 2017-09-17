@@ -22,9 +22,9 @@ const Day = ({
   onEditClick,
   onChooseDateClick
 }) => {
-  const showModal = show => {
+  const hideModal = () => {
     let modal = document.getElementById('event-modal');
-    modal.style.display = 'block';
+    modal.style.display = 'none';
   };
 
   const mapAndRenderEvents = () => {
@@ -43,7 +43,6 @@ const Day = ({
             date={date}
             time={time}
             title={event.title}
-            showModal={showModal}
             onEventClick={onEventClick}
             onEditClick={onEditClick}
             onChooseDateClick={onChooseDateClick}
@@ -69,6 +68,7 @@ const Day = ({
         <div className="day">{date}</div>
         <Modal
           date={date}
+          hideModal={hideModal}
           onDayClick={onDayClick}
           onEventClick={onEventClick}
           onChooseDateClick={onChooseDateClick}
@@ -77,21 +77,22 @@ const Day = ({
     );
   } else {
     return (
-      <td
-        onClick={e => {
-          console.log('events');
-          onEditClick('');
-          const eventModal = document.getElementById('event-modal').style;
-          if (!eventModal.display || eventModal.display === 'none') {
-            showModal();
+      <td>
+        <button
+          type="button"
+          className="modal-button"
+          data-toggle="modal"
+          data-target="#event-modal"
+          onClick={e => {
+            onEditClick('');
             onChooseDateClick(date);
-          }
-        }}
-      >
+          }}
+        />
         <div className="day">{date}</div>
         {mapAndRenderEvents()}
         <Modal
           date={date}
+          hideModal={hideModal}
           onDayClick={onDayClick}
           onEventClick={onEventClick}
           onChooseDateClick={onChooseDateClick}

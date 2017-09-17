@@ -10,23 +10,26 @@ const Event = ({
   time,
   onEditClick,
   onDeleteClick,
-  onChooseDateClick,
-  showModal
+  onChooseDateClick
 }) => {
+  console.log('time', time);
   return (
     <div className="added-event">
-      <div
-        className="event-info"
+      <button
+        type="button"
+        className="modal-button"
+        data-toggle="modal"
+        data-target="#event-modal"
         onClick={e => {
-          e.stopPropagation();
-          showModal();
           onEditClick(id);
           onChooseDateClick(date);
         }}
       >
-        <div>{title}</div>
-        <div>{time}</div>
-      </div>
+        <div className="event-info">
+          <div>{title}</div>
+          <div>{time}</div>
+        </div>
+      </button>
     </div>
   );
 };
@@ -38,4 +41,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(Event);
-

@@ -35,6 +35,7 @@ const Day = ({
           : parseInt(a.startTime) < parseInt(b.startTime) ? -1 : 0;
       })
       .map((event, i) => {
+        console.log('event', event);
         let time = `${event.start} - ${event.end}`;
         return (
           <Event

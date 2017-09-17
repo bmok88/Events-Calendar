@@ -1,8 +1,7 @@
 const event = (state, action) => {
+  const event = action.event;
   switch (action.type) {
     case 'ADD_EVENT':
-      const event = action.event;
-
       return {
         id: action.event.id,
         title: event.title,
@@ -20,11 +19,16 @@ const event = (state, action) => {
       if (state.id === action.event.id) {
         return {
           id: action.event.id,
-          title: action.event.title,
-          month: action.event.month,
-          date: action.event.date,
-          type: action.event.type,
-          time
+          title: event.title,
+          month: event.month,
+          date: event.date,
+          type: event.type,
+          start: event.start,
+          startTime: event.startTime,
+          startAMPM: event.startAMPM,
+          end: event.end,
+          endTime: event.endTime,
+          endAMPM: event.endAMPM
         };
       }
 

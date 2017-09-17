@@ -127,3 +127,7 @@ div.filter input {
   height: 100%;
   text-decoration: none;
 }
+
+.modal-button:focus {
+  outline: 0;
+}

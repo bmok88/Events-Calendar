@@ -15,15 +15,20 @@ class SelectEvent extends Component {
     const events = ['Birthday', 'Holiday', 'Company Event', 'Miscellaneous'];
 
     return (
-      <select value={this.state.chosenEvent} onChange={this.handleEventChange}>
-        {events.map((event, i) => {
-          return (
-            <option key={i} value={event}>
-              {event}
-            </option>
-          );
-        })}
-      </select>
+      <div>
+        <select
+          value={this.state.chosenEvent}
+          onChange={this.handleEventChange}
+        >
+          {events.map((event, i) => {
+            return (
+              <option key={i} value={event}>
+                {event}
+              </option>
+            );
+          })}
+        </select>
+      </div>
     );
   }
 }

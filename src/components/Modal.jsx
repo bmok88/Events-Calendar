@@ -133,7 +133,7 @@ const Modal = ({
       aria-hidden="true"
       aria-labelledby="event-modalLabel"
     >
-      <div className="modal-dialog">
+      <div className="modal-dialog modal-lg">
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">Add/Edit Event</h5>
@@ -146,37 +146,53 @@ const Modal = ({
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div className="modal-body">
-            <form
-              id="event-form"
-              onSubmit={e => {
-                e.preventDefault();
-                handleFormSubmit(e);
-              }}
-            >
-              Event type
-              <SelectEvent />
-              Name
-              <input type="text" />
-              Month
-              <SelectMonth />
-              Date
-              <SelectDate onChooseDateClick={onChooseDateClick} />
-              Start Time
-              <SelectHour />
-              <SelectMinute />
-              <SelectAMPM />
-              End Time
-              <SelectHour />
-              <SelectMinute />
-              <SelectAMPM />
+          <form
+            id="event-form"
+            onSubmit={e => {
+              e.preventDefault();
+              handleFormSubmit(e);
+            }}
+          >
+            <div className="modal-body">
+              <div className="select event">
+                <div>Event type</div>
+                <SelectEvent />
+              </div>
+              <div className="select name">
+                <div>Name</div>
+                <div>
+                  <input type="text" />
+                </div>
+              </div>
+              <div className="select date">
+                <div>
+                  <div>Month</div>
+                  <SelectMonth />
+                </div>
+                <div>
+                  <div>Date</div>
+                  <SelectDate onChooseDateClick={onChooseDateClick} />
+                </div>
+              </div>
+              <div className="select start">
+                <div>Start Time</div>
+                <SelectHour />
+                <SelectMinute />
+                <SelectAMPM />
+              </div>
+              <div className="select end">
+                <div>End Time</div>
+                <SelectHour />
+                <SelectMinute />
+                <SelectAMPM />
+              </div>
               <div className="modal-footer">
                 <button type="submit" className="btn btn-primary">
                   Save
                 </button>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

@@ -131,3 +131,29 @@ div.filter input {
 .modal-button:focus {
   outline: 0;
 }
+
+.modal-body {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.modal-body div {
+  flex: 1 100%;
+  text-align: left;
+}
+
+.select {
+  display: flex;
+  align-items: flex-start;
+  flex-flow: row wrap;
+}
+
+.select div {
+  flex: 1 100%;
+  text-align: left;
+}
+
+.select.date div {
+  flex: 1 50%;
+}

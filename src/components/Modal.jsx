@@ -156,7 +156,9 @@ const Modal = ({
             <div className="modal-body">
               <div className="select event">
                 <div>Event type</div>
-                <SelectEvent />
+                <span>
+                  <SelectEvent />
+                </span>
               </div>
               <div className="select name">
                 <div>Name</div>
@@ -167,24 +169,40 @@ const Modal = ({
               <div className="select date">
                 <div>
                   <div>Month</div>
-                  <SelectMonth />
+                  <span>
+                    <SelectMonth />
+                  </span>
                 </div>
                 <div>
                   <div>Date</div>
-                  <SelectDate onChooseDateClick={onChooseDateClick} />
+                  <span>
+                    <SelectDate onChooseDateClick={onChooseDateClick} />
+                  </span>
                 </div>
               </div>
               <div className="select start">
                 <div>Start Time</div>
-                <SelectHour />
-                <SelectMinute />
-                <SelectAMPM />
+                <span>
+                  <SelectHour />
+                </span>
+                <span>
+                  <SelectMinute />
+                </span>
+                <span>
+                  <SelectAMPM />
+                </span>
               </div>
               <div className="select end">
                 <div>End Time</div>
-                <SelectHour />
-                <SelectMinute />
-                <SelectAMPM />
+                <span>
+                  <SelectHour />
+                </span>
+                <span>
+                  <SelectMinute />
+                </span>
+                <span>
+                  <SelectAMPM />
+                </span>
               </div>
               <div className="modal-footer">
                 <button type="submit" className="btn btn-primary">

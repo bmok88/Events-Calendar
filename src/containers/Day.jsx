@@ -55,17 +55,17 @@ const Day = ({
 
   if (!events.length) {
     return (
-      <td
-        onClick={e => {
-          onEditClick('');
-          console.log('no events');
-          const eventModal = document.getElementById('event-modal').style;
-          if (!eventModal.display || eventModal.display === 'none') {
-            showModal();
+      <td>
+        <button
+          type="button"
+          className="modal-button"
+          data-toggle="modal"
+          data-target="#event-modal"
+          onClick={e => {
+            onEditClick('');
             onChooseDateClick(date);
-          }
-        }}
-      >
+          }}
+        />
         <div className="day">{date}</div>
         <Modal
           date={date}

@@ -29,6 +29,16 @@ const Event = ({
           <div>{time}</div>
         </div>
       </button>
+      <button
+        type="button"
+        className="close"
+        aria-label="Close"
+        onClick={e => {
+          onDeleteClick(id);
+        }}
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
   );
 };

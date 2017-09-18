@@ -44,6 +44,7 @@ const Snapshot = ({
         className="delete-snapshot"
         onClick={e => {
           onDeleteClick(position);
+          viewSnapshot('');
         }}
       >
         <img src="../public/delete.png" width="80px" height="80px" />

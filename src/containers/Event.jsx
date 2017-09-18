@@ -23,18 +23,17 @@ const Event = ({
           onChooseDateClick(date);
         }}
       >
-        <span
-          className="delete-button"
-          onClick={e => {
-            e.stopPropagation();
-            onDeleteClick(id);
-          }}
-        >
-          &times;
-        </span>
         <div>{title}</div>
         <div>{time}</div>
       </div>
+      <span
+        className="delete-button"
+        onClick={e => {
+          onDeleteClick(id);
+        }}
+      >
+        &times;
+      </span>
     </div>
   );
 };

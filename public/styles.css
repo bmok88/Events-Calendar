@@ -56,15 +56,6 @@ td {
   left: 0;
 }
 
-.added-event {
-  font-size: 0.4rem;
-  width: 100%;
-}
-
-.added-event:hover {
-  background-color: yellow;
-}
-
 #filter-button {
   margin-top: 10%;
   width: 90%;
@@ -217,9 +208,23 @@ nav {
   display: flex;
 }
 
+.added-event {
+  font-size: 0.4rem;
+  width: 100%;
+  position: relative;
+}
+
+.added-event:hover {
+  background-color: yellow;
+}
+
 .delete-button {
   cursor: pointer;
+  position: absolute;
+  right: 5%;
+  top: 0;
 }
+
 /*div.filter {
   font-size: 0.6rem;
   text-align: left;

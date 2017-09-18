@@ -14,9 +14,8 @@ const Event = ({
 }) => {
   return (
     <div className="added-event">
-      <button
-        type="button"
-        className="modal-button"
+      <div
+        className="event-info"
         data-toggle="modal"
         data-target="#event-modal"
         onClick={e => {
@@ -24,21 +23,18 @@ const Event = ({
           onChooseDateClick(date);
         }}
       >
-        <div className="event-info">
-          <div>{title}</div>
-          <div>{time}</div>
-        </div>
-      </button>
-      <button
-        type="button"
-        className="close"
-        aria-label="Close"
-        onClick={e => {
-          onDeleteClick(id);
-        }}
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
+        <span
+          className="delete-button"
+          onClick={e => {
+            e.stopPropagation();
+            onDeleteClick(id);
+          }}
+        >
+          &times;
+        </span>
+        <div>{title}</div>
+        <div>{time}</div>
+      </div>
     </div>
   );
 };

@@ -216,6 +216,10 @@ nav {
 .filter {
   display: flex;
 }
+
+.delete-button {
+  cursor: pointer;
+}
 /*div.filter {
   font-size: 0.6rem;
   text-align: left;

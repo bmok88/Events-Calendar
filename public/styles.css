@@ -12,13 +12,6 @@ main {
   position: relative;
 }
 
-#filterbar {
-  width: 20%;
-  position: absolute;
-  left: 6%;
-  top: 6.5%;
-}
-
 #month-container {
   width: 70%;
   height: 100%;
@@ -61,21 +54,6 @@ td {
   position: absolute;
   top: 0;
   left: 0;
-}
-
-div.filter {
-  font-size: 0.6rem;
-  text-align: left;
-  position: relative;
-}
-
-div.filter input {
-  width: 0.65rem;
-  height: 0.65rem;
-  position: absolute;
-  padding-left: 100px;
-  right: 10%;
-  top: 25%;
 }
 
 .added-event {
@@ -221,3 +199,35 @@ nav {
 .col-12 {
   margin: -10px 0 0 0;
 }
+
+#filterbar {
+  width: 20%;
+  position: absolute;
+  left: 6%;
+  top: 6.5%;
+  display: flex;
+  flex-direction: column;
+}
+
+#filterbar form div {
+  font-size: 0.8rem;
+}
+
+.filter {
+  display: flex;
+}
+/*div.filter {
+  font-size: 0.6rem;
+  text-align: left;
+  position: relative;
+}
+
+div.filter input {
+  width: 0.65rem;
+  height: 0.65rem;
+  position: absolute;
+  padding-left: 100px;
+  right: 10%;
+  top: 25%;
+}
+*/

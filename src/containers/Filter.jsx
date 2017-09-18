@@ -14,22 +14,24 @@ const Filter = ({
 
   return (
     <div className="filter">
-      {event}
-      <input
-        className="filter-checkbox"
-        type="checkbox"
-        checked={checked}
-        value={event}
-        onChange={e => {
-          viewSnapshot('');
-          if (!filterTerms.includes(e.target.value)) {
-            addFilterTerm(e.target.value);
-          } else {
-            removeFilterTerm(e.target.value);
-          }
-          e.target.checked = false;
-        }}
-      />
+      <div>{event}</div>
+      <div>
+        <input
+          className="filter-checkbox"
+          type="checkbox"
+          checked={checked}
+          value={event}
+          onChange={e => {
+            viewSnapshot('');
+            if (!filterTerms.includes(e.target.value)) {
+              addFilterTerm(e.target.value);
+            } else {
+              removeFilterTerm(e.target.value);
+            }
+            e.target.checked = false;
+          }}
+        />
+      </div>
     </div>
   );
 };

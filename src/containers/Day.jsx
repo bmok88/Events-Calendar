@@ -56,8 +56,7 @@ const Day = ({
   if (!events.length) {
     return (
       <td>
-        <button
-          type="button"
+        <div
           className="modal-button"
           data-toggle="modal"
           data-target="#event-modal"
@@ -79,8 +78,7 @@ const Day = ({
   } else {
     return (
       <td>
-        <button
-          type="button"
+        <div
           className="modal-button"
           data-toggle="modal"
           data-target="#event-modal"

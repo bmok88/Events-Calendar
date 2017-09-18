@@ -133,7 +133,7 @@ const Modal = ({
       aria-hidden="true"
       aria-labelledby="event-modalLabel"
     >
-      <div className="modal-dialog modal-lg">
+      <div className="modal-dialog" style={{ minWidth: '1000px' }}>
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">Add/Edit Event</h5>
@@ -163,7 +163,7 @@ const Modal = ({
               </div>
               <div className="select name">
                 <div>Name</div>
-                <div className="col-10">
+                <div className="col-12">
                   <input
                     type="text"
                     className="form-control"

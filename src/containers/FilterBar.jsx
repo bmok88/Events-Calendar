@@ -49,14 +49,6 @@ class FilterBar extends Component {
         }
       }
 
-      // events.forEach(event => {
-      //   allEvents.forEach(e => {
-      //     if (e !== event.type && filterTerms.indexOf(e) === -1) {
-      //       filterTerms.push(e);
-      //     }
-      //   });
-      // });
-
       snapshotted = events.filter(event => {
         return filterTerms.indexOf(event.type) === -1;
       });

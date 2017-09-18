@@ -169,7 +169,7 @@ div.filter input {
 
 .select span {
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   overflow: hidden;
   background: url('https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/select-bottom-512.png')
     no-repeat;
@@ -190,7 +190,7 @@ div.filter input {
 }
 
 .select.date {
-  margin: 0px 0 0px -25px;
+  margin: -20px 0 0px -25px;
 }
 
 .select div span {
@@ -201,4 +201,17 @@ div.filter input {
   height: 70px;
   font-size: 0.7rem;
   padding: 0 0.35rem;
+  width: 98%;
+}
+
+.select.event {
+  margin: -10px 0 0 0;
+}
+
+.select.end {
+  padding: 0 0 25px 0;
+}
+
+.col-12 {
+  margin: -10px 0 0 0;
 }

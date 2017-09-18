@@ -12,7 +12,6 @@ const Event = ({
   onDeleteClick,
   onChooseDateClick
 }) => {
-  console.log('time', time);
   return (
     <div className="added-event">
       <button

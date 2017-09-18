@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 
-// import FilterComponents from '../components/FilterComponents';
 import Filter from './Filter.jsx';
 import SnapshotModal from '../components/SnapshotModal';
 
@@ -56,7 +55,7 @@ class FilterBar extends Component {
       snapshotted.filterTerms = filterTerms;
 
       addSnapshot(snapshotted);
-      hideSnapshotModal();
+      $('#snapshot-modal').modal('hide');
     };
 
     const showSnapshotModal = () => {
@@ -108,8 +107,9 @@ class FilterBar extends Component {
             <button
               id="filter-button"
               type="button"
+              data-toggle="modal"
+              data-target="#snapshot-modal"
               className="btn btn-success"
-              onClick={() => showSnapshotModal()}
             >
               Add Events to Dashboard
             </button>

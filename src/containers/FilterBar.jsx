@@ -37,7 +37,9 @@ class FilterBar extends Component {
         'Company Event',
         'Miscellaneous'
       ];
-      const snapshotName = e.target.children[4].children[0].children[1].value;
+      const snapshotName =
+        e.target.children[4].children[0].children[0].children[1].children[0]
+          .children[0].value;
       const inputs = e.target.children;
       const filterTerms = [];
       let snapshotted;

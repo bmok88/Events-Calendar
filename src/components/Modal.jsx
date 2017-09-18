@@ -163,8 +163,12 @@ const Modal = ({
               </div>
               <div className="select name">
                 <div>Name</div>
-                <div>
-                  <input type="text" />
+                <div className="col-10">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="modal-input"
+                  />
                 </div>
               </div>
               <div className="select date">

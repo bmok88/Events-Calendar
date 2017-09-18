@@ -196,3 +196,9 @@ div.filter input {
 .select div span {
   padding: 10px 0;
 }
+
+#modal-input {
+  height: 70px;
+  font-size: 0.7rem;
+  padding: 0 0.35rem;
+}

@@ -24,6 +24,8 @@ main {
   height: 100%;
   position: absolute;
   right: 0;
+  padding-top: 0.8rem;
+  padding-right: 2rem;
 }
 
 table {
@@ -76,10 +78,6 @@ div.filter input {
   top: 25%;
 }
 
-/*.modal-dialog {
-  display: none;
-}
-*/
 .added-event {
   font-size: 0.4rem;
   width: 100%;
@@ -95,10 +93,18 @@ div.filter input {
   font-size: 0.6rem;
 }
 
+nav {
+  height: 2.75rem;
+}
+
+#nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
 #nav li {
-  float: left;
   list-style-type: none;
-  padding: 0 20px;
+  padding: 0 0.5rem;
 }
 
 .snapshot {

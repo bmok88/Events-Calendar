@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-    <div>
-      NavBar
+    <nav className="navbar navbar-light" style={{ backgroundColor: '#e3f2fd' }}>
       <ul id="nav">
         <li>
           <Link to="/calendar" style={{ textDecoration: 'none' }}>
@@ -17,7 +16,7 @@ const NavBar = () => {
           </Link>
         </li>
       </ul>
-    </div>
+    </nav>
   );
 };
 

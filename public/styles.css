@@ -83,6 +83,10 @@ nav {
   margin: 150px 150px;
 }
 
+.snapshot a {
+  width: 100%;
+}
+
 .delete-snapshot {
   float: right;
 }

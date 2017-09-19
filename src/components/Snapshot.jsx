@@ -20,13 +20,11 @@ const Snapshot = ({
       })
       .map((s, i) => {
         return (
-          <Link to="/calendar" key={i}>
-            <div className="event-snapshot">
-              <span>{s.title}</span>
-              <span>{' ' + s.month.substr(0, 3) + ' ' + s.date + ' '}</span>
-              <span>{`${s.start} - ${s.end}`}</span>
-            </div>
-          </Link>
+          <div className="event-snapshot" key={i}>
+            <span>{s.title}</span>
+            <span>{' ' + s.month.substr(0, 3) + ' ' + s.date + ' '}</span>
+            <span>{`${s.start} - ${s.end}`}</span>
+          </div>
         );
       });
   };
@@ -50,6 +48,9 @@ const Snapshot = ({
         <img src="../public/delete.png" width="80px" height="80px" />
       </div>
       {renderCard()}
+      <Link to="/calendar" className="snapshot-link">
+        View in calendar
+      </Link>
     </div>
   );
 };

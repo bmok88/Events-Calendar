@@ -56,12 +56,12 @@ td {
   top: 0;
 }
 
-#filter-button {
+/*#filter-button {
   margin-top: 10%;
   width: 90%;
   font-size: 0.6rem;
 }
-
+*/
 nav {
   height: 2.75rem;
 }
@@ -192,7 +192,7 @@ nav {
 }
 
 .col-12 {
-  margin: -10px 0 0 0;
+  margin: -10px 7px 0 0;
 }
 
 #filterbar {
@@ -294,6 +294,26 @@ div.event-delete img {
 .event-icon {
   padding-right: 10px;
 }
+
+div.modal-header {
+  padding-right: 0.5rem;
+}
+
+.modal-header button {
+  padding: 0.05rem 0.35rem;
+}
+
+div.modal-footer {
+  padding-top: 0.6rem;
+}
+
+.modal-footer button {
+  padding: 0.25rem 0.5rem;
+}
+
+/*.modal-content div button {
+  padding: 0.15rem 0.5rem;
+}*/
 
 /*div.filter {
   font-size: 0.6rem;

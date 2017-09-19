@@ -139,11 +139,11 @@ const Modal = ({
             <h5 className="modal-title">Add/Edit Event</h5>
             <button
               type="button"
-              className="close"
+              className="btn btn-danger"
               data-dismiss="modal"
               aria-label="Close"
             >
-              <span aria-hidden="true">&times;</span>
+              &times;
             </button>
           </div>
           <form

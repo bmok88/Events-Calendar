@@ -236,8 +236,15 @@ div.event-info {
   display: flex;
 }
 
+.filter-icon img {
+  flex: 1;
+  min-width: 40px;
+  min-height: 40px;
+  padding-right: 25%;
+}
+
 .filter-event {
-  flex: 2 1 40%;
+  flex: 3 1 40%;
 }
 
 .filter-input {

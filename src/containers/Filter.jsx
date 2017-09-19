@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Filter = ({
+  src,
   event,
   filterTerms,
   viewSnapshot,
@@ -14,6 +15,9 @@ const Filter = ({
 
   return (
     <div id="filter">
+      <div className="filter-icon">
+        <img src={src} />
+      </div>
       <div className="filter-event">{event}</div>
       <div className="filter-input">
         <input

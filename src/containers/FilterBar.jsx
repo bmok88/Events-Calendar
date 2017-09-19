@@ -81,9 +81,22 @@ class FilterBar extends Component {
     const renderFilterComponents = () => {
       const events = ['Birthday', 'Holiday', 'Company Event', 'Miscellaneous'];
       return events.map((event, i) => {
+        let src;
+
+        if (event === 'Birthday') {
+          src = '../public/balloons.png';
+        } else if (event === 'Holiday') {
+          src = '../public/sun.png';
+        } else if (event === 'Company Event') {
+          src = '../public/briefcase.png';
+        } else {
+          src = '../public/push-pin.png';
+        }
+
         return (
           <Filter
             key={i}
+            src={src}
             event={event}
             filterTerms={filterTerms}
             viewSnapshot={viewSnapshot}

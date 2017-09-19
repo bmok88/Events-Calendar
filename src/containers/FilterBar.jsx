@@ -116,7 +116,6 @@ class FilterBar extends Component {
             onSubmit={e => {
               e.preventDefault();
               handleAddEventsToDashboard(e);
-              handleRedirect();
             }}
           >
             {renderFilterComponents()}

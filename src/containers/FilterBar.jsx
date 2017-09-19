@@ -50,9 +50,11 @@ class FilterBar extends Component {
         }
       }
 
-      snapshotted = events.filter(event => {
-        return filterTerms.indexOf(event.type) === -1;
-      });
+      snapshotted = events
+        .filter(event => {
+          return filterTerms.indexOf(event.type) === -1;
+        })
+        .slice(0, 5);
       snapshotted.name = snapshotName;
       snapshotted.filterTerms = filterTerms;
 

@@ -12,28 +12,34 @@ const Event = ({
   onDeleteClick,
   onChooseDateClick
 }) => {
+  let style = {
+    backgroundColor: 'red'
+  };
+
   return (
     <div className="added-event">
-      <div
-        className="event-info"
-        data-toggle="modal"
-        data-target="#event-modal"
-        onClick={e => {
-          onEditClick(id);
-          onChooseDateClick(date);
-        }}
-      >
-        <div>{title}</div>
-        <div>{time}</div>
+      <div className="event-color" style={style} />
+      <div className="event-info">
+        <div
+          data-toggle="modal"
+          data-target="#event-modal"
+          onClick={e => {
+            onEditClick(id);
+            onChooseDateClick(date);
+          }}
+        >
+          <div className="event-title">{title}</div>
+          <div className="event-time">{time}</div>
+        </div>
+        <span
+          className="delete-button"
+          onClick={e => {
+            onDeleteClick(id);
+          }}
+        >
+          &times;
+        </span>
       </div>
-      <span
-        className="delete-button"
-        onClick={e => {
-          onDeleteClick(id);
-        }}
-      >
-        &times;
-      </span>
     </div>
   );
 };

@@ -201,9 +201,19 @@ nav {
 }
 
 .added-event {
-  font-size: 0.4rem;
+  font-size: 0.55rem;
   width: 100%;
   position: relative;
+  display: flex;
+}
+
+div.event-color {
+  flex: 1;
+  height: 100px;
+}
+
+div.event-info {
+  flex: 20;
 }
 
 .added-event:hover {

@@ -14,8 +14,8 @@ class SelectAMPM extends Component {
   render() {
     return (
       <select value={this.state.ampm} onChange={this.handleAMPMChange}>
-        <option value="AM">AM</option>
-        <option value="PM">PM</option>
+        <option value="am">am</option>
+        <option value="pm">pm</option>
       </select>
     );
   }

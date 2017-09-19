@@ -13,9 +13,9 @@ const Filter = ({
   }
 
   return (
-    <div className="filter">
-      <div>{event}</div>
-      <div>
+    <div id="filter">
+      <div className="filter-event">{event}</div>
+      <div className="filter-input">
         <input
           className="filter-checkbox"
           type="checkbox"

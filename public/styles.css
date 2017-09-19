@@ -200,14 +200,6 @@ nav {
   flex-direction: column;
 }
 
-#filterbar form div {
-  font-size: 0.8rem;
-}
-
-.filter {
-  display: flex;
-}
-
 .added-event {
   font-size: 0.4rem;
   width: 100%;
@@ -223,6 +215,28 @@ nav {
   position: absolute;
   right: 5%;
   top: 0;
+}
+
+#filterbar form div {
+  font-size: 0.8rem;
+}
+
+#filter {
+  display: flex;
+}
+
+.filter-event {
+  flex: 2 1 40%;
+}
+
+.filter-input {
+  flex: 1 1 10%;
+  text-align: center;
+}
+
+.filter-checkbox {
+  width: 0.6rem;
+  height: 0.6rem;
 }
 
 /*div.filter {

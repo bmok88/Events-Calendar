@@ -30,13 +30,7 @@ const Snapshot = ({
   };
 
   return (
-    <div
-      className="snapshot"
-      onClick={e => {
-        viewSnapshot(id);
-        addFilters(snapshot.filterTerms);
-      }}
-    >
+    <div className="snapshot">
       <h2>{snapshot.name}</h2>
       <div
         className="delete-snapshot"
@@ -48,9 +42,17 @@ const Snapshot = ({
         <img src="../public/delete.png" width="80px" height="80px" />
       </div>
       {renderCard()}
-      <Link to="/calendar" className="snapshot-link">
-        View in calendar
-      </Link>
+      <div
+        onClick={e => {
+          viewSnapshot(id);
+          addFilters(snapshot.filterTerms);
+          console.log('adding filterTerms', snapshot);
+        }}
+      >
+        <Link to="/calendar" className="snapshot-link">
+          View in calendar
+        </Link>
+      </div>
     </div>
   );
 };

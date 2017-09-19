@@ -45,8 +45,8 @@ class FilterBar extends Component {
       let snapshotted;
 
       for (let i = 0; i < 4; i++) {
-        if (!inputs[i].children[0].checked) {
-          filterTerms.push(inputs[i].children[0].value);
+        if (!inputs[i].children[2].children[0].checked) {
+          filterTerms.push(inputs[i].children[2].children[0].value);
         }
       }
 
@@ -116,6 +116,7 @@ class FilterBar extends Component {
             onSubmit={e => {
               e.preventDefault();
               handleAddEventsToDashboard(e);
+              handleRedirect();
             }}
           >
             {renderFilterComponents()}

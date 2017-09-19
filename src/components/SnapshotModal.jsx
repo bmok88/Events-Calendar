@@ -29,7 +29,7 @@ const SnapshotModal = ({ hideSnapshotModal }) => {
                 type="text"
                 className="form-control"
                 id="modal-input"
-                autofocus
+                autoFocus
               />
             </div>
           </div>

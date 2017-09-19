@@ -168,7 +168,6 @@ const Modal = ({
                     type="text"
                     id="modal-input"
                     className="form-control"
-                    autofocus={true}
                   />
                 </div>
               </div>

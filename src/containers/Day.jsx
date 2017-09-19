@@ -35,15 +35,13 @@ const Day = ({
           : parseInt(a.startTime) < parseInt(b.startTime) ? -1 : 0;
       })
       .map((event, i) => {
-        console.log('event', event);
         let time = `${event.start} - ${event.end}`;
         return (
           <Event
             key={i}
-            id={event.id}
+            {...event}
             date={date}
             time={time}
-            title={event.title}
             onEventClick={onEventClick}
             onEditClick={onEditClick}
             onChooseDateClick={onChooseDateClick}

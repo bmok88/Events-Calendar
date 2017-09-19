@@ -8,17 +8,28 @@ const Event = ({
   date,
   title,
   time,
+  type,
   onEditClick,
   onDeleteClick,
   onChooseDateClick
 }) => {
-  let style = {
-    backgroundColor: 'red'
-  };
+  let src;
+
+  if (type === 'Birthday') {
+    src = '../public/balloons.png';
+  } else if (type === 'Holiday') {
+    src = '../public/sun.png';
+  } else if (type === 'Company Event') {
+    src = '../public/briefcase.png';
+  } else {
+    src = '../public/push-pin.png';
+  }
 
   return (
     <div className="added-event">
-      <div className="event-color" style={style} />
+      <div className="event-icon">
+        <img src={src} />
+      </div>
       <div className="event-info">
         <div
           data-toggle="modal"

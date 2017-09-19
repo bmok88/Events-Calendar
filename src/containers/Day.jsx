@@ -86,7 +86,7 @@ const Day = ({
           }}
         />
         <div className="day">{date}</div>
-        {mapAndRenderEvents()}
+        <div className="events">{mapAndRenderEvents()}</div>
         <Modal
           date={date}
           hideModal={hideModal}

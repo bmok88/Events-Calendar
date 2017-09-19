@@ -34,7 +34,7 @@ h3 {
 .week {
   width: 100%;
   height: 20%;
-  text-align: center;
+  /*  text-align: center;*/
 }
 
 th {
@@ -51,9 +51,9 @@ td {
 }
 
 .day {
+  font-size: 0.6rem;
   position: absolute;
   top: 0;
-  left: 0;
 }
 
 #filter-button {
@@ -208,28 +208,48 @@ nav {
   font-size: 0.55rem;
   width: 100%;
   position: relative;
+  padding: 4% 0;
   display: flex;
+  justify-content: space-around;
+}
+
+div.event-icon {
+  flex: 1;
+  padding-left: 2%;
 }
 
 div.event-icon img {
-  flex: 1;
   max-height: 30px;
   max-width: 30px;
 }
 
 div.event-info {
-  flex: 20;
+  flex: 10;
+}
+
+div.event-delete {
+  cursor: pointer;
+  flex: 1;
+  position: absolute;
+  right: 5%;
+  top: 10%;
+}
+
+div.event-delete img {
+  max-width: 18px;
+  max-height: 18px;
+  position: absolute;
+  right: 50%;
+  top: 8%;
+  display: none;
 }
 
 .added-event:hover {
   cursor: pointer;
 }
 
-.delete-button {
-  cursor: pointer;
-  position: absolute;
-  right: 5%;
-  top: 0;
+.added-event:hover div img {
+  display: inline;
 }
 
 #filterbar form div {
@@ -259,6 +279,19 @@ div.event-info {
 .filter-checkbox {
   width: 0.6rem;
   height: 0.6rem;
+}
+
+.event-title {
+  font-size: 0.45rem;
+  font-weight: bold;
+}
+
+.event-time {
+  font-size: 0.4rem;
+}
+
+.event-icon {
+  padding-right: 10px;
 }
 
 /*div.filter {

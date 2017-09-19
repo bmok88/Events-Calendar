@@ -25,7 +25,12 @@ const SnapshotModal = ({ hideSnapshotModal }) => {
           </div>
           <div className="modal-body">
             <div className="col-12">
-              <input type="text" className="form-control" id="modal-input" />
+              <input
+                type="text"
+                className="form-control"
+                id="modal-input"
+                autofocus
+              />
             </div>
           </div>
           <div className="modal-footer">

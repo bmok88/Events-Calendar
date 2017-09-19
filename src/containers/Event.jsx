@@ -42,14 +42,14 @@ const Event = ({
           <div className="event-title">{title}</div>
           <div className="event-time">{time}</div>
         </div>
-        <span
-          className="delete-button"
-          onClick={e => {
-            onDeleteClick(id);
-          }}
-        >
-          &times;
-        </span>
+      </div>
+      <div
+        className="event-delete"
+        onClick={e => {
+          onDeleteClick(id);
+        }}
+      >
+        <img src="../public/delete-icon.png" />
       </div>
     </div>
   );

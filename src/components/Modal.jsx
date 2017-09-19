@@ -122,13 +122,13 @@ const Modal = ({
       onDayClick(event);
     }
     viewSnapshot('');
+    form.children[1].children[1].children[0].value = '';
   };
 
   return (
     <div
       id="event-modal"
       className="modal fade"
-      tabIndex="-1"
       role="dialog"
       aria-hidden="true"
       aria-labelledby="event-modalLabel"
@@ -166,8 +166,9 @@ const Modal = ({
                 <div className="col-12">
                   <input
                     type="text"
-                    className="form-control"
                     id="modal-input"
+                    className="form-control"
+                    autofocus={true}
                   />
                 </div>
               </div>
@@ -241,8 +242,3 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);
-
-// $('#event-form').submit(e => {
-//       e.preventDefault();
-//       $('#event-modal').modal('hide');
-//     });

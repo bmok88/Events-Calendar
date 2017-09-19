@@ -120,15 +120,16 @@ class FilterBar extends Component {
           >
             {renderFilterComponents()}
             <SnapshotModal hideSnapshotModal={hideSnapshotModal} />
-            <button
-              id="filter-button"
-              type="button"
-              data-toggle="modal"
-              data-target="#snapshot-modal"
-              className="btn btn-success"
-            >
-              Add Events to Dashboard
-            </button>
+            <div id="filter-button">
+              <button
+                type="button"
+                data-toggle="modal"
+                data-target="#snapshot-modal"
+                className="btn btn-info"
+              >
+                Add Events to Dashboard
+              </button>
+            </div>
           </form>
         </div>
       );

@@ -25,10 +25,15 @@ const Snapshot = ({
   const renderCard = () => {
     return events.map((s, i) => {
       return (
-        <div className="event-snapshot" key={i}>
-          <span>{s.title}</span>
-          <span>{' ' + s.month.substr(0, 3) + ' ' + s.date + ' '}</span>
-          <span>{`${s.start} - ${s.end}`}</span>
+        <div className="snapshot-event" key={i}>
+          <span className="snapshot-event-icon">
+            <img src={s.imageURL} height="50px" width="50px" />
+          </span>
+          <span className="snapshot-event-name">{s.title}</span>
+          <span className="snapshot-event-date">
+            {' ' + s.month.substr(0, 3) + ' ' + s.date + ' '}
+          </span>
+          <span className="snapshot-event-time">{`${s.start} - ${s.end}`}</span>
         </div>
       );
     });
@@ -53,27 +58,29 @@ const Snapshot = ({
       >
         <SnapshotModal />
       </form>
-      <button
-        type="button"
-        data-toggle="modal"
-        data-target="#snapshot-modal"
-        onClick={e => {
-          onSnapshotClick(id);
-        }}
-      >
-        <h2>{name}</h2>
-      </button>
-      <div
-        className="delete-snapshot"
-        onClick={e => {
-          onDeleteClick(id);
-          onViewSnapshotCalendarClick('');
-        }}
-      >
-        <img src="../public/delete.png" width="80px" height="80px" />
+      <div className="snapshot-header">
+        <div
+          className="snapshot-name"
+          data-toggle="modal"
+          data-target="#snapshot-modal"
+          onClick={e => {
+            onSnapshotClick(id);
+          }}
+        >
+          <span>{name}</span>
+        </div>
+        <div
+          className="snapshot-delete"
+          onClick={e => {
+            onDeleteClick(id);
+            onViewSnapshotCalendarClick('');
+          }}
+        >
+          <img src="../public/delete.png" width="60px" height="60px" />
+        </div>
       </div>
       {renderCard()}
-      <div>
+      <div className="snapshot-footer">
         <Link to="/calendar" className="snapshot-link">
           <div
             onClick={() => {
@@ -81,7 +88,8 @@ const Snapshot = ({
               onViewSnapshotCalendarClick(id);
             }}
           >
-            View in calendar
+            <img src="../public/calendar.png" />
+            <span>View events in calendar</span>
           </div>
         </Link>
       </div>

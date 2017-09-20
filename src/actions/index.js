@@ -8,9 +8,9 @@ export const editEvent = event => ({
   event
 });
 
-export const deleteEvent = event => ({
+export const deleteEvent = eventId => ({
   type: 'DELETE_EVENT',
-  event
+  eventId
 });
 
 export const addFilter = filterTerm => ({

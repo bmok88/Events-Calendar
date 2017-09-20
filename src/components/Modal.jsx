@@ -46,6 +46,7 @@ const Modal = ({
     let endTime;
     let start;
     let end;
+    let imageURL;
 
     if (startAMPM === 'PM') {
       if (startHour === '12') {
@@ -109,6 +110,16 @@ const Modal = ({
       }
     }
 
+    if (type === 'Birthday') {
+      imageURL = '../public/balloons.png';
+    } else if (type === 'Holiday') {
+      imageURL = '../public/sun.png';
+    } else if (type === 'Company Event') {
+      imageURL = '../public/briefcase.png';
+    } else {
+      imageURL = '../public/push-pin.png';
+    }
+
     const event = {
       type,
       title,
@@ -120,6 +131,7 @@ const Modal = ({
       endTime,
       startAMPM,
       endAMPM,
+      imageURL,
       id
     };
 

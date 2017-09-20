@@ -9,26 +9,15 @@ const Event = ({
   title,
   time,
   type,
+  imageURL,
   onEditClick,
   onDeleteClick,
   onChooseDateClick
 }) => {
-  let src;
-
-  if (type === 'Birthday') {
-    src = '../public/balloons.png';
-  } else if (type === 'Holiday') {
-    src = '../public/sun.png';
-  } else if (type === 'Company Event') {
-    src = '../public/briefcase.png';
-  } else {
-    src = '../public/push-pin.png';
-  }
-
   return (
     <div className="added-event">
       <div className="event-icon">
-        <img src={src} />
+        <img src={imageURL} />
       </div>
       <div className="event-info">
         <div

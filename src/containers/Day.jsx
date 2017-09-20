@@ -104,8 +104,8 @@ const mapDispatchToProps = dispatch => {
     onEventClick: event => {
       dispatch(editEvent(event));
     },
-    onDeleteClick: event => {
-      dispatch(deleteEvent(event));
+    onDeleteClick: eventId => {
+      dispatch(deleteEvent(eventId));
     },
     onDayClick: event => {
       dispatch(addEvent(event));

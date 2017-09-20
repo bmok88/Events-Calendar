@@ -72,20 +72,68 @@ nav {
 .snapshot {
   border: 2px solid black;
   width: 40%;
-  padding: 50px 50px;
-  margin: 150px 150px;
+  padding: 20px 20px;
+  margin: 100px 100px;
+  display: flex;
+  flex-direction: column;
 }
 
-.snapshot a {
-  width: 100%;
+.snapshot-header {
+  flex: 2 1 40%;
+  display: flex;
 }
 
-.delete-snapshot {
-  float: right;
+.snapshot-name {
+  flex: 16 1 auto;
 }
 
-.delete-snapshot {
+.snapshot-name span {
+  font-size: 1.2rem;
   cursor: pointer;
+  vertical-align: top;
+}
+
+.snapshot-delete {
+  flex: 1 1 auto;
+  cursor: pointer;
+  vertical-align: top;
+  text-align: right;
+}
+
+.snapshot-event {
+  flex: 1 1 auto;
+}
+
+.snapshot-event {
+  display: flex;
+  justify-content: space-around;
+}
+
+.snapshot-event-icon {
+  flex: 1 1 10%;
+  vertical-align: middle;
+}
+
+.snapshot-event-name {
+  font-size: 0.75rem;
+  flex: 6 1 50%;
+  vertical-align: middle;
+}
+
+.snapshot-event-date {
+  font-size: 0.5rem;
+  flex: 1 1 10%;
+  vertical-align: middle;
+}
+
+.snapshot-event-time {
+  font-size: 0.5rem;
+  flex: 1 1 30%;
+  vertical-align: middle;
+}
+
+.snapshot-footer {
+  flex: 1 1 auto;
 }
 
 #nav {

@@ -13,7 +13,8 @@ const event = (state, action) => {
         startAMPM: event.startAMPM,
         end: event.end,
         endTime: event.endTime,
-        endAMPM: event.endAMPM
+        endAMPM: event.endAMPM,
+        imageURL: event.imageURL
       };
     case 'EDIT_EVENT':
       if (state.id === action.event.id) {
@@ -28,7 +29,8 @@ const event = (state, action) => {
           startAMPM: event.startAMPM,
           end: event.end,
           endTime: event.endTime,
-          endAMPM: event.endAMPM
+          endAMPM: event.endAMPM,
+          imageURL: event.imageURL
         };
       }
 
@@ -46,8 +48,9 @@ const events = (state = [], action) => {
     case 'EDIT_EVENT':
       return state.map(e => event(e, action));
     case 'DELETE_EVENT':
-      newState.splice(action.event.id, 1);
-      return newState;
+      return state.filter(event => {
+        return event.id !== action.eventId;
+      });
     case 'ADD_TO_DASHBOARD':
       return newState.filter(event => {
         return action.events.indexOf(event.type) === -1;

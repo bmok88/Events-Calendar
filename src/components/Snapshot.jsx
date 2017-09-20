@@ -6,27 +6,31 @@ import { addFilterTerms, chooseSnapshot } from '../actions';
 
 const Snapshot = ({
   id,
-  snapshot,
   position,
+  snapshot,
   addFilters,
   filterTerms,
   viewSnapshot,
   onDeleteClick
 }) => {
   const renderCard = () => {
-    return snapshot
-      .sort((a, b) => {
-        return a.date > b.date ? 1 : a.date < b.date ? -1 : 0;
-      })
-      .map((s, i) => {
-        return (
-          <div className="event-snapshot" key={i}>
-            <span>{s.title}</span>
-            <span>{' ' + s.month.substr(0, 3) + ' ' + s.date + ' '}</span>
-            <span>{`${s.start} - ${s.end}`}</span>
-          </div>
-        );
-      });
+    return (
+      snapshot
+        // .sort((a, b) => {
+        //   return parseInt(a.startTime) > parseInt(b.startTime)
+        //     ? 1
+        //     : parseInt(a.startTime) < parseInt(b.startTime) ? -1 : 0;
+        // })
+        .map((s, i) => {
+          return (
+            <div className="event-snapshot" key={i}>
+              <span>{s.title}</span>
+              <span>{' ' + s.month.substr(0, 3) + ' ' + s.date + ' '}</span>
+              <span>{`${s.start} - ${s.end}`}</span>
+            </div>
+          );
+        })
+    );
   };
 
   return (

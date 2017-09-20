@@ -14,10 +14,11 @@ main {
   width: 100%;
   height: 100%;
   position: relative;
+  display: flex;
 }
 
 #month-container {
-  width: 70%;
+  width: 75%;
   height: 100%;
   position: absolute;
   right: 0;
@@ -43,11 +44,9 @@ h3 {
 th {
   font-size: 0.8rem;
   width: 13%;
-  border: 2px solid black;
 }
 
 td {
-  border: 2px solid black;
   position: relative;
   width: 13%;
   height: 325px;
@@ -377,4 +376,30 @@ div.modal-footer {
 
 .modal-footer button {
   padding: 0.25rem 0.5rem;
+}
+
+div.modal-header {
+  display: flex;
+  padding-left: 4%;
+  padding-bottom: 5%;
+}
+
+#snapshot-modalbutton {
+  flex: 1 1 auto;
+}
+
+#snapshot-modaltitle {
+  flex: 10 1 auto;
+}
+
+#filterbar form div#snapshot-modalbutton {
+  max-width: 60px;
+  height: 60px;
+  text-align: center;
+}
+
+#filterbar form div#snapshot-modalbutton button {
+  width: 100%;
+  height: 100%;
+  font-size: 0.75rem;
 }

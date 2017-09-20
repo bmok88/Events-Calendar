@@ -20,15 +20,19 @@ const SnapshotModal = () => {
       <div className="modal-dialog modal-lg">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">Name This Snapshot</h5>
-            <button
-              type="button"
-              className="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <div id="snapshot-modaltitle">
+              <h6 className="modal-title">Name This Snapshot</h6>
+            </div>
+            <div id="snapshot-modalbutton">
+              <button
+                type="button"
+                className="btn btn-danger"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                &times;
+              </button>
+            </div>
           </div>
           <div className="modal-body">
             <div className="col-12">

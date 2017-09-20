@@ -7,15 +7,7 @@ import { deleteSnapshot } from '../actions';
 const Dashboard = ({ events, snapshots, onDeleteClick }) => {
   const renderSnapshots = () => {
     return snapshots.map((snapshot, i) => {
-      return (
-        <Snapshot
-          id={i}
-          key={i}
-          position={i}
-          snapshot={snapshot}
-          onDeleteClick={onDeleteClick}
-        />
-      );
+      return <Snapshot key={i} {...snapshot} onDeleteClick={onDeleteClick} />;
     });
   };
 

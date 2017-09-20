@@ -13,6 +13,8 @@ import {
   chooseSnapshot
 } from '../actions';
 
+let snapshotId = 0;
+
 class FilterBar extends Component {
   state = {
     submitted: false
@@ -42,7 +44,7 @@ class FilterBar extends Component {
           .children[0].value;
       const inputs = e.target.children;
       const filterTerms = [];
-      let snapshotted;
+      let snapshotted = {};
 
       for (let i = 0; i < 4; i++) {
         if (!inputs[i].children[2].children[0].checked) {
@@ -50,7 +52,7 @@ class FilterBar extends Component {
         }
       }
 
-      snapshotted = events
+      snapshotted.events = events
         .filter(event => {
           return filterTerms.indexOf(event.type) === -1;
         })
@@ -59,16 +61,12 @@ class FilterBar extends Component {
           let n = a.date - b.date;
 
           if (n !== 0) {
-            console.log('n', a, b);
             return n;
           }
 
-          console.log('startTime', a, b);
           return a.startTime - b.startTime;
-          // return parseInt(a.date) > parseInt(b.date)
-          //   ? 1
-          //   : parseInt(a.date) < parseInt(b.date) ? -1 : 0;
         });
+      snapshotted.id = snapshotId++;
       snapshotted.name = snapshotName;
       snapshotted.filterTerms = filterTerms;
 
@@ -134,7 +132,7 @@ class FilterBar extends Component {
             }}
           >
             {renderFilterComponents()}
-            <SnapshotModal hideSnapshotModal={hideSnapshotModal} />
+            <SnapshotModal />
             <div id="filter-button">
               <button
                 type="button"
@@ -169,8 +167,8 @@ const mapDispatchToProps = dispatch => {
     removeFilterTerm: filterTerm => {
       dispatch(removeFilter(filterTerm));
     },
-    addSnapshot: events => {
-      dispatch(addASnapshot(events));
+    addSnapshot: snapshot => {
+      dispatch(addASnapshot(snapshot));
     },
     viewSnapshot: snapshotId => {
       dispatch(chooseSnapshot(snapshotId));

@@ -28,9 +28,9 @@ export const addEventsToDashboard = events => ({
   events
 });
 
-export const addASnapshot = events => ({
+export const addASnapshot = snapshot => ({
   type: 'ADD_SNAPSHOT',
-  events
+  snapshot
 });
 
 export const chooseDate = date => ({
@@ -56,4 +56,15 @@ export const chooseSnapshot = snapshotId => ({
 export const addFilterTerms = filterTerms => ({
   type: 'ADD_FILTERTERMS',
   filterTerms
+});
+
+export const renameSnapshot = (snapshotId, name) => ({
+  type: 'RENAME_SNAPSHOT',
+  snapshotId,
+  name
+});
+
+export const editSnapshot = snapshotId => ({
+  type: 'EDITING_SNAPSHOT',
+  snapshotId
 });

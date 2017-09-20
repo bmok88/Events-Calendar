@@ -2,57 +2,70 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { addFilterTerms, chooseSnapshot } from '../actions';
+import SnapshotModal from './SnapshotModal';
+import {
+  addFilterTerms,
+  chooseSnapshot,
+  editSnapshot,
+  renameSnapshot
+} from '../actions';
 
 const Snapshot = ({
   id,
-  position,
-  snapshot,
+  name,
+  events,
+  editingSnapshot,
   addFilters,
   filterTerms,
   viewSnapshot,
-  onDeleteClick
+  onDeleteClick,
+  snapshotRename
 }) => {
   const renderCard = () => {
-    return (
-      snapshot
-        // .sort((a, b) => {
-        //   return parseInt(a.startTime) > parseInt(b.startTime)
-        //     ? 1
-        //     : parseInt(a.startTime) < parseInt(b.startTime) ? -1 : 0;
-        // })
-        .map((s, i) => {
-          return (
-            <div className="event-snapshot" key={i}>
-              <span>{s.title}</span>
-              <span>{' ' + s.month.substr(0, 3) + ' ' + s.date + ' '}</span>
-              <span>{`${s.start} - ${s.end}`}</span>
-            </div>
-          );
-        })
-    );
+    return events.map((s, i) => {
+      return (
+        <div className="event-snapshot" key={i}>
+          <span>{s.title}</span>
+          <span>{' ' + s.month.substr(0, 3) + ' ' + s.date + ' '}</span>
+          <span>{`${s.start} - ${s.end}`}</span>
+        </div>
+      );
+    });
+  };
+
+  const handleSnapshotRename = (snapshotId, e) => {
+    const snapshotName =
+      e.target.children[0].children[0].children[0].children[1].children[0]
+        .children[0].value;
+    console.log(snapshotId, 'snapshot id');
+    snapshotRename(snapshotId, snapshotName);
   };
 
   return (
     <div className="snapshot">
-      <h2>{snapshot.name}</h2>
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          handleSnapshotRename(id, e);
+        }}
+      >
+        <SnapshotModal />
+      </form>
+      <button type="button" data-toggle="modal" data-target="#snapshot-modal">
+        <h2>{name}</h2>
+        <h3>{id}</h3>
+      </button>
       <div
         className="delete-snapshot"
         onClick={e => {
-          onDeleteClick(position);
+          onDeleteClick(id);
           viewSnapshot('');
         }}
       >
         <img src="../public/delete.png" width="80px" height="80px" />
       </div>
       {renderCard()}
-      <div
-        onClick={e => {
-          viewSnapshot(id);
-          addFilters(snapshot.filterTerms);
-          console.log('adding filterTerms', snapshot);
-        }}
-      >
+      <div>
         <Link to="/calendar" className="snapshot-link">
           View in calendar
         </Link>
@@ -74,7 +87,13 @@ const mapDispatchToProps = dispatch => {
     },
     addFilters: filterTerms => {
       dispatch(addFilterTerms(filterTerms));
+    },
+    snapshotRename: (snapshotId, name) => {
+      dispatch(renameSnapshot(snapshotId, name));
     }
+    // editingSnapshot: snapshotId => {
+    //   dispatch(editSnapshot(snapshotId));
+    // }
   };
 };
 

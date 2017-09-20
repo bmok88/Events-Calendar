@@ -1,10 +1,9 @@
 import React from 'react';
 
-const SnapshotModal = ({ hideSnapshotModal }) => {
+const SnapshotModal = () => {
   return (
     <div
       id="snapshot-modal"
-      tabIndex="-1"
       role="dialog"
       aria-hidden="true"
       aria-labelledby="snapshot-modalLabel"

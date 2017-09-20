@@ -14,9 +14,9 @@ const Snapshot = ({
   id,
   name,
   events,
-  editingSnapshot,
+  editing,
+  onSnapshotClick,
   addFilters,
-  filterTerms,
   viewSnapshot,
   onDeleteClick,
   snapshotRename
@@ -33,12 +33,12 @@ const Snapshot = ({
     });
   };
 
-  const handleSnapshotRename = (snapshotId, e) => {
+  const handleSnapshotRename = e => {
     const snapshotName =
       e.target.children[0].children[0].children[0].children[1].children[0]
         .children[0].value;
-    console.log(snapshotId, 'snapshot id');
-    snapshotRename(snapshotId, snapshotName);
+
+    snapshotRename(editing, snapshotName);
   };
 
   return (
@@ -46,12 +46,19 @@ const Snapshot = ({
       <form
         onSubmit={e => {
           e.preventDefault();
-          handleSnapshotRename(id, e);
+          handleSnapshotRename(e);
         }}
       >
         <SnapshotModal />
       </form>
-      <button type="button" data-toggle="modal" data-target="#snapshot-modal">
+      <button
+        type="button"
+        data-toggle="modal"
+        data-target="#snapshot-modal"
+        onClick={e => {
+          onSnapshotClick(id);
+        }}
+      >
         <h2>{name}</h2>
         <h3>{id}</h3>
       </button>
@@ -76,7 +83,7 @@ const Snapshot = ({
 
 const mapStateToProps = state => {
   return {
-    filterTerms: state.filterTerms
+    editing: state.editing
   };
 };
 
@@ -90,11 +97,11 @@ const mapDispatchToProps = dispatch => {
     },
     snapshotRename: (snapshotId, name) => {
       dispatch(renameSnapshot(snapshotId, name));
+    },
+    onSnapshotClick: snapshotId => {
+      dispatch(editSnapshot(snapshotId));
     }
-    // editingSnapshot: snapshotId => {
-    //   dispatch(editSnapshot(snapshotId));
-    // }
   };
 };
 
-export default connect(null, mapDispatchToProps)(Snapshot);
+export default connect(mapStateToProps, mapDispatchToProps)(Snapshot);

@@ -27,7 +27,7 @@ const Snapshot = ({
       return (
         <div className="snapshot-event" key={i}>
           <span className="snapshot-event-icon">
-            <img src={s.imageURL} height="50px" width="50px" />
+            <img src={s.imageURL} height="40px" width="40px" />
           </span>
           <span className="snapshot-event-name">{s.title}</span>
           <span className="snapshot-event-date">
@@ -76,10 +76,10 @@ const Snapshot = ({
             onViewSnapshotCalendarClick('');
           }}
         >
-          <img src="../public/delete.png" width="60px" height="60px" />
+          <img src="../public/delete.png" width="55px" height="55px" />
         </div>
       </div>
-      {renderCard()}
+      <div className="all-events">{renderCard()}</div>
       <div className="snapshot-footer">
         <Link to="/calendar" className="snapshot-link">
           <div
@@ -88,8 +88,8 @@ const Snapshot = ({
               onViewSnapshotCalendarClick(id);
             }}
           >
-            <img src="../public/calendar.png" />
-            <span>View events in calendar</span>
+            <img src="../public/calendar.png" width="40px" height="40px" />
+            <span className="link-calendar">View all in calendar</span>
           </div>
         </Link>
       </div>

@@ -8,7 +8,7 @@ import SelectMinute from '../containers/SelectMinute';
 import SelectEvent from '../containers/SelectEvent';
 import SelectAMPM from '../containers/SelectAMPM';
 
-import { chooseSnapshot } from '../actions';
+import { viewSnapshot } from '../actions';
 
 let eventId = 0;
 
@@ -22,6 +22,13 @@ const Modal = ({
   onEventClick,
   onChooseDateClick
 }) => {
+  $(document).ready(function() {
+    $('.modal').on('shown.bs.modal', function() {
+      $(this)
+        .find('input:text:visible')
+        .focus();
+    });
+  });
   const handleFormSubmit = e => {
     const form = e.target.children[0];
     const type = form.children[0].children[1].children[0].value;
@@ -235,7 +242,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     viewSnapshot: snapshotId => {
-      dispatch(chooseSnapshot(snapshotId));
+      dispatch(viewSnapshot(snapshotId));
     }
   };
 };

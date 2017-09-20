@@ -18,7 +18,7 @@ const Week = ({ week, events, filterTerms, snapshots, viewSnapshot }) => {
           }
         });
       } else if (snapshots.length) {
-        snapshots[viewSnapshot].forEach(event => {
+        snapshots[viewSnapshot].events.forEach(event => {
           let date = parseInt(event.date);
           if (date === i && filterTerms.indexOf(event.type) === -1) {
             eventsToPassDown.push(event);

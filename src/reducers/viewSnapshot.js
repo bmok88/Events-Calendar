@@ -1,6 +1,6 @@
 const viewSnapshot = (state = '', action) => {
   switch (action.type) {
-    case 'CHOOSE_SNAPSHOT':
+    case 'VIEW_SNAPSHOT':
       return action.snapshotId;
     default:
       return state;

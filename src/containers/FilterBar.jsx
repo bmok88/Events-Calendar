@@ -10,7 +10,7 @@ import {
   removeFilter,
   addEventsToDashboard,
   addASnapshot,
-  chooseSnapshot
+  viewSnapshot
 } from '../actions';
 
 let snapshotId = 0;
@@ -171,7 +171,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(addASnapshot(snapshot));
     },
     viewSnapshot: snapshotId => {
-      dispatch(chooseSnapshot(snapshotId));
+      dispatch(viewSnapshot(snapshotId));
     }
   };
 };

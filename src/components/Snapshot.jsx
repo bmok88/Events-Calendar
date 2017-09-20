@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import SnapshotModal from './SnapshotModal';
 import {
   addFilterTerms,
-  chooseSnapshot,
+  viewSnapshot,
   editSnapshot,
   renameSnapshot
 } from '../actions';
@@ -15,9 +15,10 @@ const Snapshot = ({
   name,
   events,
   editing,
+  filterTerms,
   onSnapshotClick,
   addFilters,
-  viewSnapshot,
+  onViewSnapshotCalendarClick,
   onDeleteClick,
   snapshotRename
 }) => {
@@ -47,6 +48,7 @@ const Snapshot = ({
         onSubmit={e => {
           e.preventDefault();
           handleSnapshotRename(e);
+          $('#snapshot-modal').modal('hide');
         }}
       >
         <SnapshotModal />
@@ -60,13 +62,12 @@ const Snapshot = ({
         }}
       >
         <h2>{name}</h2>
-        <h3>{id}</h3>
       </button>
       <div
         className="delete-snapshot"
         onClick={e => {
           onDeleteClick(id);
-          viewSnapshot('');
+          onViewSnapshotCalendarClick('');
         }}
       >
         <img src="../public/delete.png" width="80px" height="80px" />
@@ -74,7 +75,14 @@ const Snapshot = ({
       {renderCard()}
       <div>
         <Link to="/calendar" className="snapshot-link">
-          View in calendar
+          <div
+            onClick={() => {
+              addFilters(filterTerms);
+              onViewSnapshotCalendarClick(id);
+            }}
+          >
+            View in calendar
+          </div>
         </Link>
       </div>
     </div>
@@ -89,8 +97,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    viewSnapshot: snapshotId => {
-      dispatch(chooseSnapshot(snapshotId));
+    onViewSnapshotCalendarClick: snapshotId => {
+      dispatch(viewSnapshot(snapshotId));
     },
     addFilters: filterTerms => {
       dispatch(addFilterTerms(filterTerms));

@@ -26,6 +26,7 @@ const Filter = ({
           checked={checked}
           value={event}
           onChange={e => {
+            console.log(viewSnapshot);
             viewSnapshot('');
             if (!filterTerms.includes(e.target.value)) {
               addFilterTerm(e.target.value);

@@ -48,8 +48,8 @@ export const deleteSnapshot = position => ({
   position
 });
 
-export const chooseSnapshot = snapshotId => ({
-  type: 'CHOOSE_SNAPSHOT',
+export const viewSnapshot = snapshotId => ({
+  type: 'VIEW_SNAPSHOT',
   snapshotId
 });
 

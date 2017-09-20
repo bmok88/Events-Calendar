@@ -57,15 +57,7 @@ class FilterBar extends Component {
           return filterTerms.indexOf(event.type) === -1;
         })
         .slice(0, 5);
-      // .sort((a, b) => {
-      //   let n = a.date - b.date;
 
-      //   if (n !== 0) {
-      //     return n;
-      //   }
-
-      //   return a.startTime - b.startTime;
-      // });
       snapshotted.id = snapshotId++;
       snapshotted.name = snapshotName;
       snapshotted.filterTerms = filterTerms;

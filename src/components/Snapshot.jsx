@@ -81,7 +81,11 @@ const Snapshot = ({
       </div>
       <div className="all-events">{renderCard()}</div>
       <div className="snapshot-footer">
-        <Link to="/calendar" className="snapshot-link">
+        <Link
+          to="/calendar"
+          className="snapshot-link"
+          style={{ textDecoration: 'none' }}
+        >
           <div
             onClick={() => {
               addFilters(filterTerms);

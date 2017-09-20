@@ -2,6 +2,10 @@ html {
   font-size: 3rem;
 }
 
+a {
+  text-decoration: none;
+}
+
 main {
   height: 95vh;
 }
@@ -80,6 +84,7 @@ nav {
   display: flex;
   flex-direction: column;
   flex: 1 1 50%;
+  max-width: 45%;
 }
 
 .snapshot-header {
@@ -112,7 +117,7 @@ nav {
 }
 
 .all-events {
-  padding: 5% 2%;
+  padding: 2% 2%;
 }
 
 .snapshot-event {

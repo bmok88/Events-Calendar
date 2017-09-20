@@ -11,7 +11,7 @@ const Dashboard = ({ events, snapshots, onDeleteClick }) => {
     });
   };
 
-  return <div>{renderSnapshots()}</div>;
+  return <div id="dashboard">{renderSnapshots()}</div>;
 };
 
 const mapStateToProps = state => {

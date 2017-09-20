@@ -44,7 +44,15 @@ const events = (state = [], action) => {
   let newState = state.slice();
   switch (action.type) {
     case 'ADD_EVENT':
-      return [...state, event(state, action)];
+      return [...state, event(state, action)].sort((a, b) => {
+        let n = a.date - b.date;
+
+        if (n !== 0) {
+          return n;
+        }
+
+        return a.startTime - b.startTime;
+      });
     case 'EDIT_EVENT':
       return state.map(e => event(e, action));
     case 'DELETE_EVENT':

@@ -328,7 +328,7 @@ div.event-delete img {
   flex: 1 1 auto;
   min-width: 40px;
   min-height: 40px;
-  padding-right: 25%;
+  padding-right: 50%;
 }
 
 .filter-event {

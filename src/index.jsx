@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { applyMiddleware, compose, createStore } from 'redux';
 
 import App from './components/App';
+import css from '../public/styles.sass';
 import eventsCalendar from './reducers/root';
 
 const store = createStore(eventsCalendar, compose(applyMiddleware(logger)));

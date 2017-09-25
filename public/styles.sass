@@ -1,0 +1,403 @@
+html
+  font-size: 3rem
+
+
+a
+  text-decoration: none
+
+
+main
+  height: 95vh
+
+#calendarview-container
+  width: 100%
+  height: 100%
+  position: relative
+  display: flex
+
+
+#month-container
+  width: 75%
+  height: 100%
+  position: absolute
+  right: 0
+  padding-top: 0.8rem
+  padding-right: 2rem
+
+
+table
+  width: 100%
+
+
+h3
+  margin: 0 auto
+  width: 50%
+  text-align: center
+
+
+.week
+  width: 100%
+  height: 20%
+
+
+th
+  font-size: 0.8rem
+  width: 13%
+
+
+td
+  position: relative
+  width: 13%
+  height: 325px
+
+
+.day
+  font-size: 0.6rem
+  position: absolute
+  top: 0
+
+
+nav
+  height: 2.75rem
+
+
+#nav
+  display: flex
+  justify-content: flex-end
+
+
+#dashboard
+  display: flex
+
+
+#nav li
+  list-style-type: none
+  padding: 0 0.5rem
+
+
+.snapshot
+  border: 2px solid black
+  padding: 20px 20px
+  margin: 150px 75px
+  display: flex
+  flex-direction: column
+  flex: 1 1 50%
+  max-width: 45%
+
+
+.snapshot-header
+  flex: 2 1 40%
+  display: flex
+  padding: 1% 1% 0 1%
+
+
+.snapshot-name
+  flex: 16 1 auto
+
+
+.snapshot-name span
+  font-size: 1.2rem
+  cursor: pointer
+  line-height: 0
+
+
+.snapshot-delete
+  flex: 1 1 auto
+  cursor: pointer
+  line-height: 1.1
+  text-align: right
+
+
+.snapshot-event
+  flex: 1 1 auto
+  display: flex
+  justify-content: space-around
+
+
+.all-events
+  padding: 2% 2%
+
+
+.snapshot-event
+  height: 70px
+
+
+.snapshot-event-icon
+  flex: 1 1 5%
+  line-height: 1.4
+
+
+.snapshot-event-name
+  font-size: 0.65rem
+  flex: 6 1 50%
+  line-height: 2
+
+
+.snapshot-event-date
+  font-size: 0.5rem
+  flex: 1 1 10%
+  line-height: 3
+
+
+.snapshot-event-time
+  font-size: 0.5rem
+  flex: 1 1 25%
+  line-height: 3
+
+
+.snapshot-footer
+  flex: 1 1 auto
+  line-height: 1.5
+  text-align: center
+
+
+.link-calendar
+  padding-left: 2%
+  font-size: 0.7rem
+
+
+#nav
+  float: right
+
+
+.modal-button
+  width: 100%
+  height: 100%
+  position: absolute
+  top: 0
+  left: 0
+
+
+.modal-button:focus
+  outline: 0
+
+
+.modal-body
+  align-items: flex-start
+  display: flex
+  flex-flow: row wrap
+
+
+.modal-body div
+  flex: 1 100%
+  text-align: left
+
+
+.modal-header h5
+  padding-left: 25px
+
+
+.modal-header button span
+  padding-right: 15px
+
+
+.select
+  display: flex
+  align-items: flex-start
+  flex-flow: row wrap
+
+
+.select div
+  flex: 1 100%
+  text-align: left
+  padding: 10px 0 10px 25px
+
+
+.select.date div
+  flex: 1 50%
+
+
+.select span
+  border: 1px solid #ccc
+  border-radius: 0.25rem
+  overflow: hidden
+  background: url('https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/select-bottom-512.png') no-repeat
+  background-size: 40px 40px
+  background-position: right center
+  font-size: 0.8rem
+  margin: 0 0 0 25px
+  padding: 5px 0
+
+
+.select span select
+  padding: 5px 8px
+  border: none
+  box-shadow: none
+  padding: 0 60px 0 10px
+  background: transparent
+  -webkit-appearance: none
+
+
+.select.date
+  margin: -20px 0 0px -25px
+
+
+.select div span
+  padding: 10px 0
+
+
+#modal-input
+  height: 70px
+  font-size: 0.7rem
+  padding: 0 0.35rem
+  width: 98%
+
+
+.select.event
+  margin: -10px 0 0 0
+
+
+.select.end
+  padding: 0 0 25px 0
+
+
+.col-12
+  margin: -10px 7px 0 0
+
+
+#filterbar
+  max-width: 465px
+  min-width: 465px
+  position: absolute
+  left: 4%
+  top: 6.5%
+  display: flex
+  flex-direction: column
+
+
+#filterbar form div button
+  flex: 1 1 auto
+  font-size: 0.64rem
+  margin-top: 5%
+
+
+.added-event
+  font-size: 0.55rem
+  width: 100%
+  position: relative
+  padding: 4% 0
+  display: flex
+  justify-content: space-around
+
+
+div.event-icon
+  flex: 1
+  padding-left: 2%
+
+
+div.event-icon img
+  max-height: 30px
+  max-width: 30px
+
+
+div.event-info
+  flex: 10
+
+
+div.event-delete
+  cursor: pointer
+  flex: 1
+  position: absolute
+  right: 5%
+  top: 9%
+
+
+div.event-delete img
+  max-width: 18px
+  max-height: 18px
+  display: none
+
+
+.added-event:hover
+  cursor: pointer
+
+
+.added-event:hover div img
+  display: inline
+
+
+#filterbar form div
+  font-size: 0.8rem
+
+
+#filter
+  display: flex
+  flex: 1 1 auto
+  justify-content: space-around
+
+
+.filter-icon img
+  flex: 1 1 auto
+  min-width: 40px
+  min-height: 40px
+  padding-right: 50%
+
+
+.filter-event
+  flex: 3 1 50%
+
+
+.filter-input
+  flex: 1 1 auto
+  text-align: center
+
+
+.filter-checkbox
+  width: 0.6rem
+  height: 0.6rem
+
+
+.event-title
+  font-size: 0.45rem
+  font-weight: bold
+
+
+.event-time
+  font-size: 0.4rem
+
+
+.event-icon
+  padding-right: 10px
+
+
+div.modal-header
+  padding-right: 0.55rem
+
+
+.modal-header button
+  padding: 0.04rem 0.4rem 0.15rem 0.4rem
+
+
+div.modal-footer
+  padding-top: 0.6rem
+
+
+.modal-footer button
+  padding: 0.25rem 0.5rem
+
+
+div.modal-header
+  display: flex
+  padding-left: 4%
+  padding-bottom: 5%
+
+
+#snapshot-modalbutton
+  flex: 1 1 auto
+
+
+#snapshot-modaltitle
+  flex: 10 1 auto
+
+
+#filterbar form div#snapshot-modalbutton
+  max-width: 60px
+  height: 60px
+  text-align: center
+
+
+#filterbar form div#snapshot-modalbutton button
+  width: 100%
+  height: 100%
+  font-size: 0.75rem
+
